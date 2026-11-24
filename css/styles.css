@@ -1137,12 +1137,49 @@ p {
   }
 
   .demo-content {
-    grid-template-columns: 85px 1fr;
+    grid-template-columns: 1fr;
   }
 
+  /* Prvi i treći demo nemaju bočnu navigaciju na mobilnom. */
   .demo-side {
-    padding: 22px 8px;
+    display: none;
+  }
+
+  /* Samo drugi demo (11:30) ima tabove Zadaci / Raspored / Beleške. */
+  .demo-side--tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
     font-size: 9px;
+    border-right: 0;
+    border-bottom: 1px solid hsl(var(--nl-border));
+    overflow-x: auto;
+  }
+
+  .demo-side--tabs > span,
+  .demo-side--tabs .demo-side-item {
+    flex: 0 0 auto;
+  }
+
+  .demo-side--tabs span {
+    padding-left: 0;
+  }
+
+  .demo-side--tabs .demo-side-item {
+    width: auto;
+    padding: 0;
+    border-left: 0;
+  }
+
+  .demo-side--tabs .demo-side-item.is-active {
+    border-left: 0;
+  }
+
+  .demo-side--tabs .demo-side-item .icon {
+    width: 13px;
+    height: 13px;
   }
 
   .demo-main {
@@ -1154,52 +1191,6 @@ p {
   }
 }
 
-@media (max-width: 380px) {
-  .demo-side {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 14px;
-    font-size: 8px;
-    border-right: 0;
-    border-bottom: 1px solid hsl(var(--nl-border));
-    overflow-x: auto;
-  }
-
-  .demo-side > span,
-  .demo-side-item {
-    flex: 0 0 auto;
-  }
-
-  .demo-side span {
-    padding-left: 0;
-  }
-
-  .demo-side .demo-side-active {
-    padding-left: 0;
-    border-left: 0;
-  }
-
-  .demo-side-item {
-    width: auto;
-    padding: 0;
-    border-left: 0;
-  }
-
-  .demo-side-item.is-active {
-    border-left: 0;
-  }
-
-  .demo-side-item .icon {
-    width: 13px;
-    height: 13px;
-  }
-
-  .demo-content {
-    grid-template-columns: 1fr;
-  }
-}
 .photo-frame {
   position: relative;
   display: flex;
