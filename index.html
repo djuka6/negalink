@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#24473c" />
+    <meta
+      name="description"
+      content="NegaLink povezuje raspored zaposlenih, dnevne zadatke i beleške o korisnicima doma na jednom mestu."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://negalink.rs/" />
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sr_RS" />
+    <meta property="og:site_name" content="NegaLink" />
+    <meta property="og:title" content="NegaLink | Više vremena za ljude" />
+    <meta
+      property="og:description"
+      content="Organizacija rada u domovima za stare, na jednom mestu."
+    />
+    <meta property="og:url" content="https://negalink.rs/" />
+    <meta property="og:image" content="https://negalink.rs/logo512.png" />
+    <meta property="og:image:alt" content="NegaLink" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="NegaLink | Više vremena za ljude" />
+    <meta
+      name="twitter:description"
+      content="Organizacija rada u domovima za stare, na jednom mestu."
+    />
+    <meta name="twitter:image" content="https://negalink.rs/logo512.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=11" />
+    <link rel="stylesheet" href="css/pricing.css?v=2" />
+    <link rel="stylesheet" href="css/hero-demo.css?v=3" />
+    <link rel="stylesheet" href="css/admin-demo.css?v=2" />
+    <link rel="stylesheet" href="css/ckiti-demo.css?v=6" />
+    <link rel="stylesheet" href="css/mogucnosti.css?v=5" />
+
+    <title>NegaLink | Više vremena za ljude</title>
+  </head>
+  <body>
+    <!-- SVG ikone (sprite) -->
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </symbol>
+      <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+        <path d="M12 5v14"></path>
+        <path d="m19 12-7 7-7-7"></path>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="M20 6 9 17l-5-5"></path>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <path d="M12 6v6h4"></path>
+        <circle cx="12" cy="12" r="10"></circle>
+      </symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24">
+        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+        <circle cx="9" cy="9" r="2"></circle>
+        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+      </symbol>
+      <symbol id="icon-clipboard-list" viewBox="0 0 24 24">
+        <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <path d="M12 11h4"></path>
+        <path d="M12 16h4"></path>
+        <path d="M8 11h.01"></path>
+        <path d="M8 16h.01"></path>
+      </symbol>
+      <symbol id="icon-notebook" viewBox="0 0 24 24">
+        <path d="M6 3h11a2 2 0 0 1 2 2v16H8a2 2 0 0 1-2-2V3Z"></path>
+        <path d="M8 3v18"></path>
+        <path d="M12 8h4"></path>
+        <path d="M12 12h4"></path>
+        <path d="M12 16h2"></path>
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </symbol>
+      <symbol id="icon-warning" viewBox="0 0 24 24">
+        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path>
+        <path d="M12 9v4"></path>
+        <path d="M12 17h.01"></path>
+      </symbol>
+      <symbol id="icon-bed" viewBox="0 0 24 24">
+        <path d="M2 4v16"></path>
+        <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+        <path d="M2 17h20"></path>
+        <path d="M6 8v9"></path>
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6"></path>
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+        <path d="M16 2v4"></path>
+        <path d="M8 2v4"></path>
+        <path d="M3 10h18"></path>
+      </symbol>
+      <symbol id="icon-chart-line" viewBox="0 0 24 24">
+        <path d="M3 3v18h18"></path>
+        <path d="m7 15 4-4 3 3 5-6"></path>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+    <div class="site-shell" id="pocetak">
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="header-brand" href="index.html" aria-label="NegaLink — početna">
+            <img
+              class="brand-logo logo"
+              src="assets/negalink-logo.png"
+              alt=""
+              width="190"
+              height="45"
+              decoding="async"
+            />
+          </a>
+
+          <nav class="header-nav" aria-label="Glavna navigacija">
+            <a class="nav-link" href="index.html" aria-current="page">Početna</a>
+            <a class="nav-link" href="mogucnosti.html">Mogućnosti</a>
+            <a class="button button-small" href="index.html#prijava">
+              Povežite svoj dom
+              <svg class="icon" width="16" height="16" aria-hidden="true">
+                <use href="#icon-arrow-right"></use>
+              </svg>
+            </a>
+            <button
+              class="menu-toggle"
+              type="button"
+              aria-label="Otvori meni"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span class="menu-toggle__line"></span>
+              <span class="menu-toggle__line"></span>
+              <span class="menu-toggle__line"></span>
+            </button>
+          </nav>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-nav" aria-label="Mobilna navigacija" hidden>
+          <div class="container">
+            <a class="mobile-menu__link" href="index.html" aria-current="page">Početna</a>
+            <a class="mobile-menu__link" href="mogucnosti.html">Mogućnosti</a>
+            <a class="button mobile-menu__cta" href="index.html#prijava">
+              Povežite svoj dom
+              <svg class="icon" width="16" height="16" aria-hidden="true">
+                <use href="#icon-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <section class="hero container" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span aria-hidden="true"></span>
+              Za domove koji brinu
+            </p>
+
+            <h1 id="hero-title">
+              Ostanite povezani. <em>Više nege, manje briga.</em>
+            </h1>
+
+            <p class="hero-lead">
+              NegaLink povezuje raspored zaposlenih, dnevne zadatke i beleške o
+              korisnicima doma — sve što je važno, na jednom mestu.
+            </p>
+
+            <a class="button hero-button" href="#prijava">
+              Povežite svoj dom
+              <svg class="icon" width="18" height="18" aria-hidden="true">
+                <use href="#icon-arrow-right"></use>
+              </svg>
+            </a>
+
+            <p class="hero-note">
+              <svg class="icon" width="16" height="16" aria-hidden="true">
+                <use href="#icon-clock"></use>
+              </svg>
+              Brzo uvođenje, uz podršku na svakom koraku.
+            </p>
+          </div>
+
+          <div class="hero-media">
+            <div
+              class="hero-carousel"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Ckiti — ilustrativni prikazi NegaLinka"
+              data-hero-carousel
+            >
+              <div
+                class="hero-slide is-active"
+                data-hero-slide="admin"
+                data-hero-label="Pregled doma"
+              >
+                <div
+                  class="hero-demo hero-demo--admin"
+                  role="group"
+                  aria-label="Ilustrativni admin dashboard — pregled doma"
+                  data-admin-demo
+                >
+                  <div class="hero-demo__bar">
+                    <img
+                      class="brand-logo demo-logo"
+                      src="assets/negalink-logo.png"
+                      alt=""
+                      width="88"
+                      height="21"
+                      decoding="async"
+                    />
+                    <span>Ilustrativni prikaz</span>
+                  </div>
+
+                  <div class="admin-demo">
+                    <div class="admin-demo__head">
+                      <div>
+                        <span class="admin-demo__eyebrow">Pregled doma</span>
+                        <h3 class="admin-demo__title">Dobro jutro, Nataša</h3>
+                      </div>
+                      <span class="admin-demo__date">Danas</span>
+                    </div>
+
+                    <div class="admin-demo__kpis">
+                      <button
+                        type="button"
+                        class="admin-demo__kpi admin-demo__kpi--action"
+                        data-ckiti-target="stats"
+                        aria-label="Prikaži statistiku doma"
+                      >
+                        <span class="admin-demo__kpi-icon">
+                          <svg class="icon" width="13" height="13" aria-hidden="true">
+                            <use href="#icon-bed"></use>
+                          </svg>
+                        </span>
+                        <span class="admin-demo__kpi-label">Popunjenost</span>
+                        <strong class="admin-demo__kpi-value">92%</strong>
+                        <span class="admin-demo__kpi-sub">46 od 50 kreveta</span>
+                        <span class="admin-demo__progress"><span style="width: 92%"></span></span>
+                        <svg class="icon admin-demo__kpi-arrow" width="10" height="10" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </button>
+
+                      <div class="admin-demo__kpi admin-demo__kpi--accent">
+                        <span class="admin-demo__kpi-icon">
+                          <svg class="icon" width="13" height="13" aria-hidden="true">
+                            <use href="#icon-users"></use>
+                          </svg>
+                        </span>
+                        <span class="admin-demo__kpi-label">U smeni</span>
+                        <strong class="admin-demo__kpi-value">12</strong>
+                        <span class="admin-demo__kpi-sub">U 3 oblasti</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        class="admin-demo__kpi admin-demo__kpi--action"
+                        data-ckiti-target="tasks"
+                        aria-label="Prikaži zadatke za danas"
+                      >
+                        <span class="admin-demo__kpi-icon">
+                          <svg class="icon" width="13" height="13" aria-hidden="true">
+                            <use href="#icon-clipboard-list"></use>
+                          </svg>
+                        </span>
+                        <span class="admin-demo__kpi-label">Zadaci danas</span>
+                        <strong class="admin-demo__kpi-value">24</strong>
+                        <span class="admin-demo__kpi-sub">11 završeno · 5 dodeljeno</span>
+                        <span class="admin-demo__split">
+                          <span class="admin-demo__split-done" style="width: 46%"></span>
+                          <span class="admin-demo__split-assigned" style="width: 21%"></span>
+                        </span>
+                        <svg class="icon admin-demo__kpi-arrow" width="10" height="10" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="admin-demo__kpi admin-demo__kpi--alert admin-demo__kpi--action"
+                        data-ckiti-target="actions"
+                        aria-label="Prikaži potrebne akcije"
+                      >
+                        <span class="admin-demo__kpi-icon">
+                          <svg class="icon" width="13" height="13" aria-hidden="true">
+                            <use href="#icon-warning"></use>
+                          </svg>
+                        </span>
+                        <span class="admin-demo__kpi-label">Potrebne akcije</span>
+                        <strong class="admin-demo__kpi-value">2</strong>
+                        <span class="admin-demo__kpi-sub">2 najvažnije</span>
+                        <svg class="icon admin-demo__kpi-arrow" width="10" height="10" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="admin-demo__panel">
+                      <div class="admin-demo__panel-head">
+                        <span class="admin-demo__panel-icon">
+                          <svg class="icon" width="14" height="14" aria-hidden="true">
+                            <use href="#icon-users"></use>
+                          </svg>
+                        </span>
+                        <div class="admin-demo__panel-title">
+                          <strong>Trenutno u smeni</strong>
+                          <small>12 zaposlenih · 3 oblasti</small>
+                        </div>
+                        <svg
+                          class="icon admin-demo__chevron is-expanded"
+                          width="14"
+                          height="14"
+                          aria-hidden="true"
+                        >
+                          <use href="#icon-chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <div class="admin-demo__area">
+                        <div class="admin-demo__area-head">
+                          <strong>Oblast A</strong>
+                          <span class="admin-demo__area-count">4</span>
+                        </div>
+
+                        <div class="admin-demo__employee">
+                          <span class="admin-demo__avatar admin-demo__avatar--green">JM</span>
+                          <span class="admin-demo__employee-text">
+                            <strong>Jelena Marković</strong>
+                            <small>Glavna sestra</small>
+                          </span>
+                          <span class="admin-demo__employee-time">
+                            <svg class="icon" width="10" height="10" aria-hidden="true">
+                              <use href="#icon-clock"></use>
+                            </svg>
+                            07:00 – 15:00
+                          </span>
+                        </div>
+
+                        <div class="admin-demo__employee admin-demo__employee--secondary">
+                          <span class="admin-demo__avatar admin-demo__avatar--blue">MP</span>
+                          <span class="admin-demo__employee-text">
+                            <strong>Marko Petrović</strong>
+                            <small>Negovatelj</small>
+                          </span>
+                          <span class="admin-demo__employee-time">
+                            <svg class="icon" width="10" height="10" aria-hidden="true">
+                              <use href="#icon-clock"></use>
+                            </svg>
+                            07:00 – 15:00
+                          </span>
+                        </div>
+
+                        <div class="admin-demo__notes" data-admin-notes>
+                          <div class="admin-demo__notes-head" data-admin-notes-toggle>
+                            <span class="admin-demo__notes-icon">
+                              <svg class="icon" width="12" height="12" aria-hidden="true">
+                                <use href="#icon-notebook"></use>
+                              </svg>
+                            </span>
+                            <strong>Beleške smene</strong>
+                            <span class="admin-demo__notes-count">2 beleške</span>
+                            <svg
+                              class="icon admin-demo__chevron"
+                              width="12"
+                              height="12"
+                              aria-hidden="true"
+                            >
+                              <use href="#icon-chevron-down"></use>
+                            </svg>
+                          </div>
+
+                          <div class="admin-demo__notes-body">
+                            <div class="admin-demo__skeleton" data-admin-skeleton>
+                              <span></span>
+                              <span></span>
+                            </div>
+                            <div class="admin-demo__notes-list" data-admin-notes-list>
+                              <article class="admin-demo__note" data-admin-note>
+                                <div class="admin-demo__note-meta">
+                                  <strong>Jelena Marković</strong>
+                                  <time datetime="11:32">11:32</time>
+                                </div>
+                                <div class="admin-demo__note-tags">
+                                  <span class="admin-demo__tag admin-demo__tag--blue">Važno</span>
+                                  <span class="admin-demo__tag admin-demo__tag--resident">
+                                    <svg class="icon" width="9" height="9" aria-hidden="true">
+                                      <use href="#icon-user"></use>
+                                    </svg>
+                                    Jela M.
+                                  </span>
+                                </div>
+                                <p>Gospođa Jela je dobro ručala i posle je šetala u dvorištu.</p>
+                              </article>
+
+                              <article class="admin-demo__note admin-demo__note--secondary">
+                                <div class="admin-demo__note-meta">
+                                  <strong>Marko Petrović</strong>
+                                  <time datetime="09:12">09:12</time>
+                                </div>
+                                <div class="admin-demo__note-tags">
+                                  <span class="admin-demo__tag admin-demo__tag--gray">Normalno</span>
+                                </div>
+                                <p>Jutarnja nega je završena, sve je u redu.</p>
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="admin-demo__panel-link">
+                        <span>
+                          <svg class="icon" width="12" height="12" aria-hidden="true">
+                            <use href="#icon-calendar"></use>
+                          </svg>
+                          Kalendar smena
+                        </span>
+                        <svg class="icon" width="12" height="12" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="hero-slide"
+                data-hero-slide="stats"
+                data-hero-label="Statistika doma"
+                hidden
+              >
+                <div
+                  class="hero-demo hero-demo--ckiti"
+                  role="group"
+                  aria-label="Ilustrativni prikaz statistike doma"
+                >
+                  <div class="hero-demo__bar">
+                    <img
+                      class="brand-logo demo-logo"
+                      src="assets/negalink-logo.png"
+                      alt=""
+                      width="88"
+                      height="21"
+                      decoding="async"
+                    />
+                    <span>Ilustrativni prikaz</span>
+                  </div>
+
+                  <div class="ckiti">
+                    <div class="ckiti__head">
+                      <div>
+                        <span class="ckiti__eyebrow">Pregled doma · Statistika</span>
+                        <h3 class="ckiti__title">Statistika doma</h3>
+                      </div>
+                      <button
+                        type="button"
+                        class="ckiti__back"
+                        data-ckiti-target="admin"
+                        aria-label="Nazad na pregled doma"
+                      >
+                        <svg class="icon ckiti__back-icon" width="12" height="12" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                        Pregled doma
+                      </button>
+                    </div>
+
+                    <div class="ckiti-stats">
+                      <div class="ckiti-rstats__hero">
+                        <div class="ckiti-rstats__hero-main">
+                          <span class="ckiti-rstats__hero-number">92%</span>
+                          <div class="ckiti-rstats__hero-text">
+                            <span class="ckiti-rstats__hero-title">Popunjenost doma</span>
+                            <span class="ckiti-rstats__hero-sub">46 od 50 kreveta zauzeto</span>
+                          </div>
+                        </div>
+                        <svg class="icon ckiti-rstats__hero-chevron" width="14" height="14" aria-hidden="true">
+                          <use href="#icon-chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <div class="ckiti-rstats__cards">
+                        <div class="ckiti-rstats__card" style="--ckiti-delay: 0.05s">
+                          <span class="ckiti-rstats__card-value">46</span>
+                          <span class="ckiti-rstats__card-label">Ukupno stanara</span>
+                        </div>
+                        <div class="ckiti-rstats__card" style="--ckiti-delay: 0.1s">
+                          <span class="ckiti-rstats__card-value">50</span>
+                          <span class="ckiti-rstats__card-label">Ukupno kreveta</span>
+                        </div>
+                        <div class="ckiti-rstats__card" style="--ckiti-delay: 0.15s">
+                          <span class="ckiti-rstats__card-value">46</span>
+                          <span class="ckiti-rstats__card-label">Zauzeti kreveti</span>
+                        </div>
+                        <div class="ckiti-rstats__card" style="--ckiti-delay: 0.2s">
+                          <span class="ckiti-rstats__card-value">4</span>
+                          <span class="ckiti-rstats__card-label">Slobodni kreveti</span>
+                        </div>
+                      </div>
+
+                      <div class="ckiti-rstats__charts">
+                        <div class="ckiti-rstats__chart">
+                          <span class="ckiti-rstats__chart-title">Popunjenost kreveta</span>
+                          <div class="ckiti-rstats__donut" role="img" aria-label="Zauzeto je 46, slobodno 4 od 50 kreveta">
+                            <svg viewBox="0 0 42 42" class="ckiti-rstats__donut-svg" aria-hidden="true">
+                              <circle
+                                class="ckiti-rstats__donut-track"
+                                cx="21"
+                                cy="21"
+                                r="15.9155"
+                                fill="none"
+                                stroke-width="6.3"
+                              ></circle>
+                              <circle
+                                class="ckiti-rstats__donut-occupied"
+                                cx="21"
+                                cy="21"
+                                r="15.9155"
+                                fill="none"
+                                stroke-width="6.3"
+                                pathLength="100"
+                                stroke-dasharray="92 8"
+                                stroke-dashoffset="0"
+                                transform="rotate(-90 21 21)"
+                              ></circle>
+                              <circle
+                                class="ckiti-rstats__donut-free"
+                                cx="21"
+                                cy="21"
+                                r="15.9155"
+                                fill="none"
+                                stroke-width="6.3"
+                                pathLength="100"
+                                stroke-dasharray="8 92"
+                                stroke-dashoffset="-92"
+                                transform="rotate(-90 21 21)"
+                              ></circle>
+                              <text x="21" y="20.4" text-anchor="middle" class="ckiti-rstats__donut-value">92%</text>
+                              <text x="21" y="24.1" text-anchor="middle" class="ckiti-rstats__donut-label">popunjeno</text>
+                            </svg>
+                            <ul class="ckiti-rstats__legend">
+                              <li class="ckiti-rstats__legend-item">
+                                <span class="ckiti-rstats__legend-dot ckiti-rstats__legend-dot--occupied"></span>
+                                <span class="ckiti-rstats__legend-label">Zauzeti</span>
+                                <span class="ckiti-rstats__legend-value">46 <small>(92%)</small></span>
+                              </li>
+                              <li class="ckiti-rstats__legend-item">
+                                <span class="ckiti-rstats__legend-dot ckiti-rstats__legend-dot--free"></span>
+                                <span class="ckiti-rstats__legend-label">Slobodni</span>
+                                <span class="ckiti-rstats__legend-value">4 <small>(8%)</small></span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="ckiti-rstats__chart ckiti-rstats__chart--mobility">
+                          <span class="ckiti-rstats__chart-title">
+                            Pokretljivost stanara <span class="ckiti-rstats__chart-sub">(46)</span>
+                          </span>
+                          <div
+                            class="ckiti-rstats__columns"
+                            role="img"
+                            aria-label="Pokretni 30, otežano pokretni 10, nepokretni 6"
+                          >
+                            <div class="ckiti-rstats__column">
+                              <span class="ckiti-rstats__column-value">30</span>
+                              <div class="ckiti-rstats__column-track">
+                                <div
+                                  class="ckiti-rstats__column-bar ckiti-rstats__column-bar--green"
+                                  style="--ckiti-h: 1; --ckiti-delay: 0s"
+                                ></div>
+                              </div>
+                              <span class="ckiti-rstats__column-label">Pokretni</span>
+                            </div>
+                            <div class="ckiti-rstats__column">
+                              <span class="ckiti-rstats__column-value">10</span>
+                              <div class="ckiti-rstats__column-track">
+                                <div
+                                  class="ckiti-rstats__column-bar ckiti-rstats__column-bar--amber"
+                                  style="--ckiti-h: 0.333; --ckiti-delay: 0.08s"
+                                ></div>
+                              </div>
+                              <span class="ckiti-rstats__column-label">Otežano pokretni</span>
+                            </div>
+                            <div class="ckiti-rstats__column">
+                              <span class="ckiti-rstats__column-value">6</span>
+                              <div class="ckiti-rstats__column-track">
+                                <div
+                                  class="ckiti-rstats__column-bar ckiti-rstats__column-bar--red"
+                                  style="--ckiti-h: 0.2; --ckiti-delay: 0.16s"
+                                ></div>
+                              </div>
+                              <span class="ckiti-rstats__column-label">Nepokretni</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ckiti-rstats__more">
+                        <span class="ckiti-rstats__more-label">
+                          <svg class="icon" width="12" height="12" aria-hidden="true">
+                            <use href="#icon-chart-line"></use>
+                          </svg>
+                          Statistika doma
+                        </span>
+                        <svg class="icon" width="12" height="12" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="hero-slide"
+                data-hero-slide="tasks"
+                data-hero-label="Zadaci danas"
+                hidden
+              >
+                <div
+                  class="hero-demo hero-demo--ckiti"
+                  role="group"
+                  aria-label="Ilustrativni prikaz zadataka za danas"
+                >
+                  <div class="hero-demo__bar">
+                    <img
+                      class="brand-logo demo-logo"
+                      src="assets/negalink-logo.png"
+                      alt=""
+                      width="88"
+                      height="21"
+                      decoding="async"
+                    />
+                    <span>Ilustrativni prikaz</span>
+                  </div>
+
+                  <div class="ckiti">
+                    <div class="ckiti__head">
+                      <div>
+                        <span class="ckiti__eyebrow">Pregled doma · Zadaci</span>
+                        <h3 class="ckiti__title">Zadaci danas</h3>
+                      </div>
+                      <button
+                        type="button"
+                        class="ckiti__back"
+                        data-ckiti-target="admin"
+                        aria-label="Nazad na pregled doma"
+                      >
+                        <svg class="icon ckiti__back-icon" width="12" height="12" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                        Pregled doma
+                      </button>
+                    </div>
+
+                    <div class="ckiti-tasks">
+                      <div class="ckiti-tasks__summary">
+                        <strong>24 zadatka</strong>
+                        <span>11 završeno · 5 dodeljeno · 8 nedodeljeno</span>
+                      </div>
+
+                      <div
+                        class="ckiti-tasks__bar"
+                        role="img"
+                        aria-label="11 završeno, 5 dodeljeno i 8 nedodeljeno od 24 zadatka"
+                      >
+                        <span
+                          class="ckiti-tasks__seg ckiti-tasks__seg--done"
+                          style="--ckiti-value: 46%; --ckiti-delay: 0s"
+                        ></span>
+                        <span
+                          class="ckiti-tasks__seg ckiti-tasks__seg--assigned"
+                          style="--ckiti-value: 21%; --ckiti-delay: 0.1s"
+                        ></span>
+                        <span
+                          class="ckiti-tasks__seg ckiti-tasks__seg--unassigned"
+                          style="--ckiti-value: 33%; --ckiti-delay: 0.2s"
+                        ></span>
+                      </div>
+
+                      <div class="ckiti-tasks__legend">
+                        <span><i class="ckiti-dot ckiti-dot--done"></i> Završeno 11</span>
+                        <span><i class="ckiti-dot ckiti-dot--assigned"></i> Dodeljeno 5</span>
+                        <span><i class="ckiti-dot ckiti-dot--unassigned"></i> Nedodeljeno 8</span>
+                      </div>
+
+                      <div class="ckiti-tasks__areas">
+                        <div class="ckiti-task-area">
+                          <span class="ckiti-task-area__name">Oblast A</span>
+                          <span class="ckiti-task-area__track">
+                            <span
+                              class="ckiti-task-area__fill"
+                              style="--ckiti-value: 60%; --ckiti-delay: 0.05s"
+                            ></span>
+                          </span>
+                          <span class="ckiti-task-area__value">6 / 10</span>
+                        </div>
+                        <div class="ckiti-task-area">
+                          <span class="ckiti-task-area__name">Oblast B</span>
+                          <span class="ckiti-task-area__track">
+                            <span
+                              class="ckiti-task-area__fill"
+                              style="--ckiti-value: 38%; --ckiti-delay: 0.15s"
+                            ></span>
+                          </span>
+                          <span class="ckiti-task-area__value">3 / 8</span>
+                        </div>
+                        <div class="ckiti-task-area">
+                          <span class="ckiti-task-area__name">Oblast C</span>
+                          <span class="ckiti-task-area__track">
+                            <span
+                              class="ckiti-task-area__fill"
+                              style="--ckiti-value: 33%; --ckiti-delay: 0.25s"
+                            ></span>
+                          </span>
+                          <span class="ckiti-task-area__value">2 / 6</span>
+                        </div>
+                      </div>
+
+                      <ul class="ckiti-tasks__list">
+                        <li class="ckiti-task" style="--ckiti-delay: 0.05s">
+                          <span class="ckiti-task__check ckiti-task__check--done">
+                            <svg class="icon" width="9" height="9" aria-hidden="true">
+                              <use href="#icon-check"></use>
+                            </svg>
+                          </span>
+                          <span class="ckiti-task__text">
+                            <strong>Jutarnja nega</strong>
+                            <small>Oblast A · 08:00</small>
+                          </span>
+                          <span class="ckiti-task__status ckiti-task__status--done">Završeno</span>
+                        </li>
+                        <li class="ckiti-task" style="--ckiti-delay: 0.15s">
+                          <span class="ckiti-task__check ckiti-task__check--progress"></span>
+                          <span class="ckiti-task__text">
+                            <strong>Podela doručka</strong>
+                            <small>Oblast B · 09:00</small>
+                          </span>
+                          <span class="ckiti-task__status ckiti-task__status--progress">U toku</span>
+                        </li>
+                        <li class="ckiti-task" style="--ckiti-delay: 0.25s">
+                          <span class="ckiti-task__check ckiti-task__check--scheduled"></span>
+                          <span class="ckiti-task__text">
+                            <strong>Obilazak korisnika</strong>
+                            <small>Oblast A · 10:30</small>
+                          </span>
+                          <span class="ckiti-task__status ckiti-task__status--scheduled">Na rasporedu</span>
+                        </li>
+                        <li class="ckiti-task" style="--ckiti-delay: 0.35s">
+                          <span class="ckiti-task__check ckiti-task__check--assigned"></span>
+                          <span class="ckiti-task__text">
+                            <strong>Unos beleške</strong>
+                            <small>Oblast C · 11:30</small>
+                          </span>
+                          <span class="ckiti-task__status ckiti-task__status--assigned">Dodeljeno</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="hero-slide"
+                data-hero-slide="actions"
+                data-hero-label="Potrebne akcije"
+                hidden
+              >
+                <div
+                  class="hero-demo hero-demo--ckiti"
+                  role="group"
+                  aria-label="Ilustrativni prikaz potrebnih akcija"
+                >
+                  <div class="hero-demo__bar">
+                    <img
+                      class="brand-logo demo-logo"
+                      src="assets/negalink-logo.png"
+                      alt=""
+                      width="88"
+                      height="21"
+                      decoding="async"
+                    />
+                    <span>Ilustrativni prikaz</span>
+                  </div>
+
+                  <div class="ckiti">
+                    <div class="ckiti__head">
+                      <div>
+                        <span class="ckiti__eyebrow">Pregled doma · Akcije</span>
+                        <h3 class="ckiti__title">Potrebne akcije</h3>
+                      </div>
+                      <button
+                        type="button"
+                        class="ckiti__back"
+                        data-ckiti-target="admin"
+                        aria-label="Nazad na pregled doma"
+                      >
+                        <svg class="icon ckiti__back-icon" width="12" height="12" aria-hidden="true">
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                        Pregled doma
+                      </button>
+                    </div>
+
+                    <div class="ckiti-actions">
+                      <div class="ckiti-actions__summary">
+                        <strong>2 akcije</strong>
+                        <span>2 najvažnije</span>
+                      </div>
+
+                      <div class="ckiti-action ckiti-action--critical" style="--ckiti-delay: 0.05s">
+                        <span class="ckiti-action__icon">
+                          <svg class="icon" width="15" height="15" aria-hidden="true">
+                            <use href="#icon-warning"></use>
+                          </svg>
+                        </span>
+                        <div class="ckiti-action__body">
+                          <div class="ckiti-action__top">
+                            <strong>Dodeliti plan ishrane</strong>
+                            <span class="ckiti-action__tag ckiti-action__tag--critical">Najvažnija</span>
+                          </div>
+                          <span class="ckiti-action__meta">
+                            <svg class="icon" width="9" height="9" aria-hidden="true">
+                              <use href="#icon-user"></use>
+                            </svg>
+                            Gorštak Mijonić
+                          </span>
+                          <span class="ckiti-action__reason">
+                            Korisnik nema dodeljenu ishranu
+                          </span>
+                        </div>
+                        <span class="ckiti-action__link">
+                          Dodeli ishranu
+                          <svg class="icon" width="10" height="10" aria-hidden="true">
+                            <use href="#icon-arrow-right"></use>
+                          </svg>
+                        </span>
+                      </div>
+
+                      <div class="ckiti-action ckiti-action--critical" style="--ckiti-delay: 0.15s">
+                        <span class="ckiti-action__icon">
+                          <svg class="icon" width="15" height="15" aria-hidden="true">
+                            <use href="#icon-notebook"></use>
+                          </svg>
+                        </span>
+                        <div class="ckiti-action__body">
+                          <div class="ckiti-action__top">
+                            <strong>Kreirati zdravstveni karton</strong>
+                            <span class="ckiti-action__tag ckiti-action__tag--critical">Najvažnija</span>
+                          </div>
+                          <span class="ckiti-action__meta">
+                            <svg class="icon" width="9" height="9" aria-hidden="true">
+                              <use href="#icon-user"></use>
+                            </svg>
+                            Milica Jovanović
+                          </span>
+                          <span class="ckiti-action__reason">
+                            Korisnik nema napravljen zdravstveni karton
+                          </span>
+                        </div>
+                        <span class="ckiti-action__link">
+                          Kreiraj karton
+                          <svg class="icon" width="10" height="10" aria-hidden="true">
+                            <use href="#icon-arrow-right"></use>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rezervni prikaz van Ckiti carousel-a: dodavanje beleške. -->
+              <div class="hero-slide" hidden>
+                <div
+                  class="hero-demo"
+                  role="img"
+                  aria-label="Ilustrativni prikaz dodavanja beleške smene u aplikaciji NegaLink"
+                  data-hero-demo
+                >
+              <div class="hero-demo__bar">
+                <img
+                  class="brand-logo demo-logo"
+                  src="assets/negalink-logo.png"
+                  alt=""
+                  width="88"
+                  height="21"
+                  decoding="async"
+                />
+                <span>Ilustrativni prikaz</span>
+              </div>
+
+              <div class="hero-demo__body">
+                <div class="hero-demo__side">
+                  <span class="hero-demo__side-item">Zadaci</span>
+                  <span class="hero-demo__side-item">Raspored</span>
+                  <span class="hero-demo__side-item is-active">
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-notebook"></use>
+                    </svg>
+                    Beleške
+                  </span>
+                </div>
+
+                <div class="hero-demo__main">
+                  <div class="hero-demo__head">
+                    <div>
+                      <span class="hero-demo__eyebrow">Jutarnja smena · Oblast A</span>
+                      <h3 class="hero-demo__title">
+                        Beleške smene
+                        <span class="hero-demo__count" data-note-count>1</span>
+                      </h3>
+                    </div>
+                    <span class="hero-demo__clock">11:32</span>
+                  </div>
+
+                  <ul class="hero-demo__notes">
+                    <li class="hero-demo__note hero-demo__note--new" data-new-note>
+                      <span class="hero-demo__note-meta">
+                        <strong>Jelena M.</strong>
+                        <time datetime="11:32">11:32</time>
+                      </span>
+                      <span class="hero-demo__note-text" data-note-text>
+                        Gospođa Jela je dobro ručala i posle je šetala u dvorištu.
+                      </span>
+                      <span class="hero-demo__tag">Normalno</span>
+                    </li>
+                    <li class="hero-demo__note hero-demo__note--existing">
+                      <span class="hero-demo__note-meta">
+                        <strong>Marko P.</strong>
+                        <time datetime="09:12">09:12</time>
+                      </span>
+                      <span class="hero-demo__note-text">
+                        Jutarnja nega je završena, sve je u redu.
+                      </span>
+                    </li>
+                  </ul>
+
+                  <div class="hero-demo__composer">
+                    <div class="hero-demo__field">
+                      <span class="hero-demo__placeholder">
+                        Dodajte belešku za sledeću smenu…
+                      </span>
+                      <span class="hero-demo__typed" data-typed-text></span>
+                      <span class="hero-demo__caret" aria-hidden="true"></span>
+                    </div>
+                    <div class="hero-demo__composer-row">
+                      <span class="hero-demo__severity">Normalno</span>
+                      <span class="hero-demo__send" data-send-button>
+                        <span class="hero-demo__send-label">Dodaj belešku</span>
+                        <span class="hero-demo__send-done">
+                          <svg class="icon" width="10" height="10" aria-hidden="true">
+                            <use href="#icon-check"></use>
+                          </svg>
+                          Dodato
+                        </span>
+                        <svg
+                          class="icon hero-demo__send-arrow"
+                          width="12"
+                          height="12"
+                          aria-hidden="true"
+                        >
+                          <use href="#icon-arrow-right"></use>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+
+              <div class="hero-caption">
+                <span>Briga je u detaljima</span>
+                <span class="hero-pager">
+                  <button
+                    type="button"
+                    class="hero-pager__btn hero-pager__btn--prev"
+                    data-hero-prev
+                    aria-label="Prethodni prikaz"
+                  >
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-arrow-right"></use>
+                    </svg>
+                  </button>
+                  <span class="hero-pager__count" data-hero-counter>01 / 04</span>
+                  <button
+                    type="button"
+                    class="hero-pager__btn"
+                    data-hero-next
+                    aria-label="Sledeći prikaz"
+                  >
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-arrow-right"></use>
+                    </svg>
+                  </button>
+                </span>
+              </div>
+              <span class="visually-hidden" data-hero-live aria-live="polite"></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="hero-bottom container">
+          <a href="mogucnosti.html">
+            <svg class="icon" width="16" height="16" aria-hidden="true">
+              <use href="#icon-arrow-right"></use>
+            </svg>
+            Istražite mogućnosti
+          </a>
+          <span>Više vremena za ono što je važno</span>
+        </div>
+
+        <section
+          id="kako-funkcionise"
+          class="shift section-pad"
+          aria-labelledby="shift-title"
+        >
+          <div class="container">
+            <div class="section-intro">
+              <div>
+                <p class="eyebrow">
+                  <span aria-hidden="true"></span>
+                  Jedan radni dan
+                </p>
+                <h2 class="section-title" id="shift-title">
+                  Kako izgleda jedna smena <em>uz NegaLink</em>
+                </h2>
+              </div>
+              <p>
+                Od prvog dogovora do predaje smene, važne informacije ostaju na
+                jednom mestu.
+              </p>
+            </div>
+
+            <div class="shift-layout">
+              <div class="moments">
+                <div class="moment-wrap">
+                  <button
+                    type="button"
+                    class="moment is-active"
+                    data-demo="dogovor"
+                    aria-pressed="true"
+                  >
+                    <span class="moment-time">07:00</span>
+                    <span class="moment-copy">
+                      <strong>Dan počinje dogovorom</strong>
+                      <span>
+                        Glavna sestra raspoređuje zadatke i svako zna šta je
+                        njegov deo posla.
+                      </span>
+                    </span>
+                    <svg class="icon moment-arrow" width="19" height="19" aria-hidden="true">
+                      <use href="#icon-arrow-right"></use>
+                    </svg>
+                  </button>
+
+                  <div class="mobile-demo">
+                    <div
+                      class="demo-screen"
+                      role="group"
+                      aria-label="Ilustrativni prikaz: Raspored zadataka"
+                    >
+                      <div class="demo-bar">
+                        <img
+                          class="brand-logo demo-logo"
+                          src="assets/negalink-logo.png"
+                          alt=""
+                          width="100"
+                          height="24"
+                          decoding="async"
+                        />
+                        <span>Ilustrativni prikaz</span>
+                      </div>
+
+                      <div class="demo-content">
+                        <div class="demo-side">
+                          <span class="demo-side-active">
+                            <svg class="icon" width="15" height="15" aria-hidden="true">
+                              <use href="#icon-clipboard-list"></use>
+                            </svg>
+                            Zadaci
+                          </span>
+                          <span>Raspored</span>
+                          <span>Beleške</span>
+                        </div>
+
+                        <div class="demo-main">
+                          <div class="demo-top">
+                            <div>
+                              <span class="demo-eyebrow">Jutarnja smena</span>
+                              <h3>Raspored zadataka</h3>
+                            </div>
+                            <span class="demo-date">Danas</span>
+                          </div>
+
+                          <p class="demo-subtitle">
+                            Pregled obaveza za vašu smenu
+                          </p>
+
+                          <div class="demo-list">
+                            <div class="demo-task">
+                              <span class="demo-check checked">
+                                <svg class="icon" width="12" height="12" aria-hidden="true">
+                                  <use href="#icon-check"></use>
+                                </svg>
+                              </span>
+                              <span>
+                                <strong>Jutarnja nega</strong>
+                                <small>Završeno</small>
+                              </span>
+                              <span class="task-time">08:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check"></span>
+                              <span>
+                                <strong>Podela doručka</strong>
+                                <small>Na rasporedu</small>
+                              </span>
+                              <span class="task-time">09:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check"></span>
+                              <span>
+                                <strong>Obilazak korisnika</strong>
+                                <small>Na rasporedu</small>
+                              </span>
+                              <span class="task-time">10:30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="demo-disclaimer">
+                        Prikaz je ilustrativan.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="moment-wrap">
+                  <button
+                    type="button"
+                    class="moment"
+                    data-demo="belezenje"
+                    aria-pressed="false"
+                  >
+                    <span class="moment-time">11:30</span>
+                    <span class="moment-copy">
+                      <strong>Urađeno se beleži usput</strong>
+                      <span>
+                        Negovateljica na telefonu beleži završene zadatke, dok su
+                        informacije još sveže.
+                      </span>
+                    </span>
+                    <svg class="icon moment-arrow" width="19" height="19" aria-hidden="true">
+                      <use href="#icon-arrow-right"></use>
+                    </svg>
+                  </button>
+
+                  <div class="mobile-demo">
+                    <div
+                      class="demo-screen"
+                      role="group"
+                      aria-label="Ilustrativni prikaz: Moji zadaci"
+                    >
+                      <div class="demo-bar">
+                        <img
+                          class="brand-logo demo-logo"
+                          src="assets/negalink-logo.png"
+                          alt=""
+                          width="100"
+                          height="24"
+                          decoding="async"
+                        />
+                        <span>Ilustrativni prikaz</span>
+                      </div>
+
+                      <div class="demo-content">
+                        <div class="demo-side demo-side--tabs" role="group" aria-label="Prikazi unutar smene">
+                          <button type="button" class="demo-side-item is-active" data-shift-view="zadaci" aria-pressed="true">
+                            <svg class="icon" width="15" height="15" aria-hidden="true">
+                              <use href="#icon-clipboard-list"></use>
+                            </svg>
+                            <span>Zadaci</span>
+                          </button>
+                          <button type="button" class="demo-side-item" data-shift-view="raspored" aria-pressed="false">
+                            <svg class="icon" width="15" height="15" aria-hidden="true">
+                              <use href="#icon-calendar"></use>
+                            </svg>
+                            <span>Raspored</span>
+                          </button>
+                          <button type="button" class="demo-side-item" data-shift-view="beleske" aria-pressed="false">
+                            <svg class="icon" width="15" height="15" aria-hidden="true">
+                              <use href="#icon-notebook"></use>
+                            </svg>
+                            <span>Beleške</span>
+                          </button>
+                        </div>
+
+                        <div class="demo-main">
+                        <div class="demo-view is-active" data-shift-panel="zadaci">
+                          <div class="demo-top">
+                            <div>
+                              <span class="demo-eyebrow">Danas</span>
+                              <h3>Moji zadaci</h3>
+                            </div>
+                            <span class="demo-date">Danas</span>
+                          </div>
+
+                          <p class="demo-subtitle">
+                            Pregled obaveza za vašu smenu
+                          </p>
+
+                          <div class="demo-list">
+                            <div class="demo-task">
+                              <span class="demo-check checked">
+                                <svg class="icon" width="12" height="12" aria-hidden="true">
+                                  <use href="#icon-check"></use>
+                                </svg>
+                              </span>
+                              <span>
+                                <strong>Jutarnja nega</strong>
+                                <small>Završeno</small>
+                              </span>
+                              <span class="task-time">08:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check"></span>
+                              <span>
+                                <strong>Podela doručka</strong>
+                                <small>Na rasporedu</small>
+                              </span>
+                              <span class="task-time">09:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check"></span>
+                              <span>
+                                <strong>Uneti belešku</strong>
+                                <small>Na rasporedu</small>
+                              </span>
+                              <span class="task-time">10:30</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="demo-view" data-shift-panel="raspored" hidden>
+                          <div class="demo-top">
+                            <div>
+                              <span class="demo-eyebrow">Moj raspored</span>
+                              <h3>Novembar 2026</h3>
+                            </div>
+                            <span class="demo-date">Danas</span>
+                          </div>
+
+                          <div class="demo-cal" aria-label="Kalendar smena za novembar 2026">
+                            <div class="demo-cal__weekdays" aria-hidden="true">
+                              <span>Pon</span>
+                              <span>Uto</span>
+                              <span>Sre</span>
+                              <span>Čet</span>
+                              <span>Pet</span>
+                              <span>Sub</span>
+                              <span>Ned</span>
+                            </div>
+                            <div class="demo-cal__grid" aria-hidden="true">
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day is-empty"></span>
+                              <span class="demo-cal__day">1</span>
+                              <span class="demo-cal__day">2</span>
+                              <span class="demo-cal__day is-shift">3</span>
+                              <span class="demo-cal__day">4</span>
+                              <span class="demo-cal__day">5</span>
+                              <span class="demo-cal__day">6</span>
+                              <span class="demo-cal__day is-shift">7</span>
+                              <span class="demo-cal__day">8</span>
+                              <span class="demo-cal__day">9</span>
+                              <span class="demo-cal__day">10</span>
+                              <span class="demo-cal__day is-shift">11</span>
+                              <span class="demo-cal__day">12</span>
+                              <span class="demo-cal__day">13</span>
+                              <span class="demo-cal__day is-shift">14</span>
+                              <span class="demo-cal__day">15</span>
+                              <span class="demo-cal__day">16</span>
+                              <span class="demo-cal__day">17</span>
+                              <span class="demo-cal__day is-shift">18</span>
+                              <span class="demo-cal__day">19</span>
+                              <span class="demo-cal__day">20</span>
+                              <span class="demo-cal__day is-shift">21</span>
+                              <span class="demo-cal__day">22</span>
+                              <span class="demo-cal__day">23</span>
+                              <span class="demo-cal__day is-shift is-today">24</span>
+                              <span class="demo-cal__day">25</span>
+                              <span class="demo-cal__day">26</span>
+                              <span class="demo-cal__day">27</span>
+                              <span class="demo-cal__day is-shift">28</span>
+                              <span class="demo-cal__day">29</span>
+                              <span class="demo-cal__day">30</span>
+                            </div>
+                          </div>
+
+                          <div class="demo-cal__legend">
+                            <span><span class="demo-cal__dot"></span>Radni dan</span>
+                            <span><span class="demo-cal__ring"></span>Danas</span>
+                          </div>
+                          <p class="demo-cal__info">24.11. · 07:00–15:00 · Oblast A</p>
+                        </div>
+
+                        <div class="demo-view" data-shift-panel="beleske" hidden>
+                          <div class="demo-top">
+                            <div>
+                              <span class="demo-eyebrow">Danas</span>
+                              <h3>Beleške smene</h3>
+                            </div>
+                            <span class="demo-date">2 beleške</span>
+                          </div>
+
+                          <p class="demo-subtitle">Zabeleženo tokom smene</p>
+
+                          <div class="demo-notes">
+                            <article class="demo-note">
+                              <div class="demo-note__head">
+                                <strong>Jelena Marković</strong>
+                                <span>11:12</span>
+                              </div>
+                              <div class="demo-note__tags">
+                                <span class="demo-tag demo-tag--important">Važno</span>
+                                <span class="demo-tag demo-tag--resident">Jelena M.</span>
+                              </div>
+                              <p>Gospođa je dobro raspoložena i popila je svu terapiju.</p>
+                            </article>
+
+                            <article class="demo-note">
+                              <div class="demo-note__head">
+                                <strong>Marko Petrović</strong>
+                                <span>09:12</span>
+                              </div>
+                              <div class="demo-note__tags">
+                                <span class="demo-tag demo-tag--normal">Normalno</span>
+                                <span class="demo-tag demo-tag--resident">Marko P.</span>
+                              </div>
+                              <p>Jutarnja nega je završena, sve je u redu.</p>
+                            </article>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="demo-disclaimer">
+                        Prikaz je ilustrativan.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="moment-wrap">
+                  <button
+                    type="button"
+                    class="moment"
+                    data-demo="primopredaja"
+                    aria-pressed="false"
+                  >
+                    <span class="moment-time">15:00</span>
+                    <span class="moment-copy">
+                      <strong>Sledeća smena nastavlja</strong>
+                      <span>
+                        Na jednom mestu se vidi šta je završeno, a šta još čeka.
+                      </span>
+                    </span>
+                    <svg class="icon moment-arrow" width="19" height="19" aria-hidden="true">
+                      <use href="#icon-arrow-right"></use>
+                    </svg>
+                  </button>
+
+                  <div class="mobile-demo">
+                    <div
+                      class="demo-screen"
+                      role="group"
+                      aria-label="Ilustrativni prikaz: Primopredaja smene"
+                    >
+                      <div class="demo-bar">
+                        <img
+                          class="brand-logo demo-logo"
+                          src="assets/negalink-logo.png"
+                          alt=""
+                          width="100"
+                          height="24"
+                          decoding="async"
+                        />
+                        <span>Ilustrativni prikaz</span>
+                      </div>
+
+                      <div class="demo-content">
+                        <div class="demo-side">
+                          <span class="demo-side-active">
+                            <svg class="icon" width="15" height="15" aria-hidden="true">
+                              <use href="#icon-clipboard-list"></use>
+                            </svg>
+                            Zadaci
+                          </span>
+                          <span>Raspored</span>
+                          <span>Beleške</span>
+                        </div>
+
+                        <div class="demo-main">
+                          <div class="demo-top">
+                            <div>
+                              <span class="demo-eyebrow">Popodnevna smena</span>
+                              <h3>Primopredaja smene</h3>
+                            </div>
+                            <span class="demo-date">Danas</span>
+                          </div>
+
+                          <p class="demo-subtitle">
+                            Pregled obaveza za vašu smenu
+                          </p>
+
+                          <div class="demo-list">
+                            <div class="demo-task">
+                              <span class="demo-check checked">
+                                <svg class="icon" width="12" height="12" aria-hidden="true">
+                                  <use href="#icon-check"></use>
+                                </svg>
+                              </span>
+                              <span>
+                                <strong>Jutarnja nega</strong>
+                                <small>Završeno</small>
+                              </span>
+                              <span class="task-time">08:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check checked">
+                                <svg class="icon" width="12" height="12" aria-hidden="true">
+                                  <use href="#icon-check"></use>
+                                </svg>
+                              </span>
+                              <span>
+                                <strong>Beleška za sledeću smenu</strong>
+                                <small>Zabeleženo</small>
+                              </span>
+                              <span class="task-time">09:00</span>
+                            </div>
+
+                            <div class="demo-task">
+                              <span class="demo-check"></span>
+                              <span>
+                                <strong>Popodnevni obilazak</strong>
+                                <small>Na rasporedu</small>
+                              </span>
+                              <span class="task-time">10:30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="demo-disclaimer">
+                        Prikaz je ilustrativan.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="desktop-demo" id="shift-demo" aria-live="polite">
+                <div
+                  class="demo-screen"
+                  role="group"
+                  aria-label="Ilustrativni prikaz: Raspored zadataka"
+                >
+                  <div class="demo-bar">
+                    <img
+                      class="brand-logo demo-logo"
+                      src="assets/negalink-logo.png"
+                      alt=""
+                      width="100"
+                      height="24"
+                      decoding="async"
+                    />
+                    <span>Ilustrativni prikaz</span>
+                  </div>
+
+                  <div class="demo-content">
+                    <div class="demo-side">
+                      <span class="demo-side-active">
+                        <svg class="icon" width="15" height="15" aria-hidden="true">
+                          <use href="#icon-clipboard-list"></use>
+                        </svg>
+                        Zadaci
+                      </span>
+                      <span>Raspored</span>
+                      <span>Beleške</span>
+                    </div>
+
+                    <div class="demo-main">
+                      <div class="demo-top">
+                        <div>
+                          <span class="demo-eyebrow">Jutarnja smena</span>
+                          <h3>Raspored zadataka</h3>
+                        </div>
+                        <span class="demo-date">Danas</span>
+                      </div>
+
+                      <p class="demo-subtitle">Pregled obaveza za vašu smenu</p>
+
+                      <div class="demo-list">
+                        <div class="demo-task">
+                          <span class="demo-check checked">
+                            <svg class="icon" width="12" height="12" aria-hidden="true">
+                              <use href="#icon-check"></use>
+                            </svg>
+                          </span>
+                          <span>
+                            <strong>Jutarnja nega</strong>
+                            <small>Završeno</small>
+                          </span>
+                          <span class="task-time">08:00</span>
+                        </div>
+
+                        <div class="demo-task">
+                          <span class="demo-check"></span>
+                          <span>
+                            <strong>Podela doručka</strong>
+                            <small>Na rasporedu</small>
+                          </span>
+                          <span class="task-time">09:00</span>
+                        </div>
+
+                        <div class="demo-task">
+                          <span class="demo-check"></span>
+                          <span>
+                            <strong>Obilazak korisnika</strong>
+                            <small>Na rasporedu</small>
+                          </span>
+                          <span class="task-time">10:30</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="demo-disclaimer">
+                    Prikaz je ilustrativan.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pre-negalinka" class="friction section-pad" aria-labelledby="friction-title">
+          <div class="container">
+            <div class="friction__head">
+              <div>
+                <p class="eyebrow">
+                  <span aria-hidden="true"></span>
+                  Pre NegaLinka
+                </p>
+                <h2 class="section-title" id="friction-title">
+                  Tri stvari koje svaki dom zna <em>napamet.</em>
+                </h2>
+              </div>
+              <p class="friction__lead">
+                Ne zato što tim ne zna svoj posao — nego zato što informacije
+                nemaju jedno mesto.
+              </p>
+            </div>
+
+            <div class="friction__grid">
+              <article class="friction-card">
+                <span class="friction-card__number" aria-hidden="true">01</span>
+                <h3>Informacije su svuda</h3>
+                <p>
+                  Papir, telefon, WhatsApp i sećanje — svako ima samo deo slike.
+                </p>
+              </article>
+
+              <article class="friction-card">
+                <span class="friction-card__number" aria-hidden="true">02</span>
+                <h3>Isto se upisuje više puta</h3>
+                <p>
+                  Raspored, terapija, ishrana i beleške često žive u dva ili tri
+                  odvojena sistema.
+                </p>
+              </article>
+
+              <article class="friction-card">
+                <span class="friction-card__number" aria-hidden="true">03</span>
+                <h3>Primopredaja zavisi od pamćenja</h3>
+                <p>
+                  Ono što nije zapisano na pravom mestu lako se izgubi između
+                  smena.
+                </p>
+              </article>
+            </div>
+
+            <p class="friction__closing">
+              <svg class="icon" width="18" height="18" aria-hidden="true">
+                <use href="#icon-arrow-right"></use>
+              </svg>
+              <span>
+                NegaLink je napravljen da te tri stvari svede na jedno mesto.
+              </span>
+            </p>
+          </div>
+        </section>
+
+        <section class="story section-pad" aria-labelledby="story-title">
+          <div class="container story-grid">
+            <div class="photo-frame story-photo">
+              <img
+                class="photo-frame__image"
+                src="assets/djordje.jpg"
+                alt="Đorđe Đukić, osnivač NegaLinka"
+                width="1064"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="story-copy">
+              <p class="eyebrow">
+                <span aria-hidden="true"></span>
+                Priča osnivača
+              </p>
+
+              <h2 class="section-title" id="story-title">
+                Zašto je nastao <em>NegaLink</em>
+              </h2>
+
+              <div class="story-rule"></div>
+
+              <p class="story-text">
+                NegaLink sam napravio ja, Đorđe Đukić, uz pomoć mladih
+                entuzijasta iz doma „Naša Čuvarkuća“ u Bečeju. Njihova energija
+                i iskustvo iz svakodnevnog rada sa korisnicima podstakli su me da
+                napravim alat koji stvarno olakšava smenu — da raspored, zadaci
+                i beleške budu na jednom mestu.
+              </p>
+
+              <p class="story-signature">
+                Đorđe Đukić <span>/ osnivač NegaLinka</span>
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="paketi" class="pricing section-pad" aria-labelledby="pricing-title">
+          <div class="container">
+            <div class="section-intro">
+              <div>
+                <p class="eyebrow">
+                  <span aria-hidden="true"></span>
+                  Paketi i cene
+                </p>
+                <h2 class="section-title" id="pricing-title">
+                  Jednostavna cena, <em>bez iznenađenja.</em>
+                </h2>
+              </div>
+              <p>
+                Ista NegaLink platforma za sve domove. Cena zavisi samo od broja
+                aktivnih korisnika.
+              </p>
+            </div>
+
+            <p class="pricing-trial">
+              <svg class="icon" width="18" height="18" aria-hidden="true">
+                <use href="#icon-check"></use>
+              </svg>
+              <span>
+                <strong>Prvih mesec dana korišćenja je besplatno.</strong>
+                Pretplatu možete otkazati u svakom trenutku.
+              </span>
+            </p>
+
+            <div class="pricing-grid">
+              <article class="price-card">
+                <h3 class="price-card__name">Starter</h3>
+                <p class="price-card__range">1–20 aktivnih korisnika</p>
+                <p class="price-card__price">
+                  <strong>15.000,00</strong> <span>RSD / mesečno</span>
+                </p>
+                <ul class="price-card__features">
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Sve funkcionalnosti NegaLinka
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Podrška pri uvođenju
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Mesečna pretplata
+                  </li>
+                </ul>
+                <a class="button price-card__cta" href="#prijava">Izaberite Starter</a>
+              </article>
+
+              <article class="price-card">
+                <h3 class="price-card__name">Standard</h3>
+                <p class="price-card__range">21–50 aktivnih korisnika</p>
+                <p class="price-card__price">
+                  <strong>22.000,00</strong> <span>RSD / mesečno</span>
+                </p>
+                <ul class="price-card__features">
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Sve funkcionalnosti NegaLinka
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Podrška pri uvođenju
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Mesečna pretplata
+                  </li>
+                </ul>
+                <a class="button price-card__cta" href="#prijava">Izaberite Standard</a>
+              </article>
+
+              <article class="price-card">
+                <h3 class="price-card__name">Enterprise</h3>
+                <p class="price-card__range">51–80 aktivnih korisnika</p>
+                <p class="price-card__price">
+                  <strong>36.000,00</strong> <span>RSD / mesečno</span>
+                </p>
+                <ul class="price-card__features">
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Sve funkcionalnosti NegaLinka
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Podrška pri uvođenju
+                  </li>
+                  <li>
+                    <svg class="icon" width="14" height="14" aria-hidden="true">
+                      <use href="#icon-check"></use>
+                    </svg>
+                    Mesečna pretplata
+                  </li>
+                </ul>
+                <p class="price-card__note">
+                  Za više od 80 korisnika, <a href="#prijava">kontaktirajte nas</a>.
+                </p>
+                <a class="button price-card__cta" href="#prijava">Izaberite Enterprise</a>
+              </article>
+            </div>
+
+            <p class="pricing-note">
+              Cene su mesečne, u RSD, bez PDV-a. Broj korisnika odnosi se na
+              aktivne korisnike doma.
+            </p>
+          </div>
+        </section>
+
+        <section id="prijava" class="signup section-pad" aria-labelledby="contact-title">
+          <div class="container signup-grid">
+            <div class="signup-copy">
+              <p class="eyebrow">
+                <span aria-hidden="true"></span>
+                Pridružite se
+              </p>
+
+              <h2 class="section-title" id="contact-title">
+                Spremni da povežete <em>svoj dom?</em>
+              </h2>
+
+              <p>
+                Javite nam se — rado ćemo odgovoriti na pitanja i pomoći vam da
+                procenite kako se NegaLink uklapa u vaš dom.
+              </p>
+            </div>
+
+            <form
+              class="signup-form"
+              data-contact-email="kontakt@negalink.rs"
+              novalidate
+            >
+              <div class="form-success" role="status" hidden>
+                <svg class="icon" width="18" height="18" aria-hidden="true">
+                  <use href="#icon-check"></use>
+                </svg>
+                <div>
+                  <strong>Upit je pripremljen.</strong>
+                  <p>
+                    Ako se vaš email klijent nije otvorio,
+                    <a href="mailto:kontakt@negalink.rs">pošaljite upit ručno</a>.
+                  </p>
+                </div>
+              </div>
+
+              <label for="home-name">Naziv doma</label>
+              <input
+                id="home-name"
+                name="homeName"
+                type="text"
+                placeholder="Unesite naziv doma"
+                maxlength="200"
+                required
+                autocomplete="organization"
+                aria-required="true"
+                aria-invalid="false"
+              />
+              <p class="form-error" id="home-name-error" hidden></p>
+
+              <label for="email">Kontakt mejl</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="vas@email.rs"
+                maxlength="254"
+                required
+                autocomplete="email"
+                aria-required="true"
+                aria-invalid="false"
+              />
+              <p class="form-error" id="email-error" hidden></p>
+
+              <button type="submit" class="button form-button">
+                Pošaljite upit
+                <svg class="icon" width="18" height="18" aria-hidden="true">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+              </button>
+
+              <p>
+                Javićemo vam se u najkraćem roku. Prvih mesec dana korišćenja je
+                besplatno, a pretplatu možete otkazati u svakom trenutku.
+              </p>
+
+              <noscript>
+                <p>
+                  Za kontakt pošaljite mejl na
+                  <a href="mailto:kontakt@negalink.rs">kontakt@negalink.rs</a>.
+                </p>
+              </noscript>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <img
+            class="brand-logo logo"
+            src="assets/negalink-logo.png"
+            alt="NegaLink"
+            width="150"
+            height="36"
+            decoding="async"
+          />
+          <p>Više vremena za ljude. Manje vremena za papire.</p>
+          <span>
+            © <time data-current-year datetime="2026">2026</time> NegaLink
+          </span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/main.js?v=15"></script>
+  </body>
+</html>

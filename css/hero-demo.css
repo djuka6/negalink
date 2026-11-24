@@ -1,0 +1,490 @@
+/* ==========================================================================
+   Hero animacija — dodavanje beleške smene
+   Ilustrativni prikaz ekrana „Beleške smene“. JS u js/main.js „kuca“ tekst,
+   pritiska „Dodaj belešku“ i ubacuje novu belešku u listu, u petlji.
+   Uz prefers-reduced-motion prikazuje se konačno stanje, bez animacije.
+   ========================================================================== */
+
+.hero-demo {
+  display: flex;
+  flex-direction: column;
+  height: clamp(390px, 38vw, 540px);
+  overflow: hidden;
+  background: hsl(var(--nl-bg));
+  border: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__bar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  padding: 0 16px;
+  border-bottom: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__bar .demo-logo {
+  width: 88px;
+}
+
+.hero-demo__bar span {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-demo__body {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: 96px minmax(0, 1fr);
+  min-height: 0;
+}
+
+.hero-demo__side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 10px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 9.5px;
+  border-right: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__side-item {
+  padding-left: 7px;
+}
+
+.hero-demo__side-item.is-active {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: hsl(var(--nl-primary));
+  font-weight: 600;
+  border-left: 2px solid hsl(var(--nl-accent));
+}
+
+.hero-demo__side-item svg {
+  flex: 0 0 auto;
+}
+
+.hero-demo__main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 16px;
+}
+
+.hero-demo__head {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hero-demo__eyebrow {
+  display: block;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8.5px;
+}
+
+.hero-demo__title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 3px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-demo__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  min-height: 17px;
+  padding: 0 5px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8.5px;
+  font-weight: 600;
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: 999px;
+}
+
+.hero-demo__count.is-bumped {
+  animation: hero-count-pop 0.45s ease;
+}
+
+.hero-demo__clock {
+  flex: 0 0 auto;
+  padding: 4px 6px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8px;
+  border: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__notes {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 0;
+  margin: 13px 0 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+.hero-demo__note {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 9px;
+  background: hsl(var(--nl-primary-fg));
+  border: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__note-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8.5px;
+}
+
+.hero-demo__note-meta strong {
+  color: hsl(var(--nl-primary));
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.hero-demo__note-text {
+  color: hsl(var(--nl-fg));
+  font-size: 9.5px;
+  line-height: 1.45;
+}
+
+.hero-demo__note--new {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  border-width: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    max-height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    padding 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-width 0.4s ease,
+    opacity 0.25s ease,
+    transform 0.35s ease;
+}
+
+.hero-demo__note--new.is-visible {
+  max-height: 120px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-width: 1px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-demo__tag {
+  align-self: flex-start;
+  margin-top: 3px;
+  padding: 1px 6px;
+  color: hsl(var(--nl-primary));
+  font-size: 8px;
+  font-weight: 600;
+  background: hsl(var(--nl-accent) / 0.22);
+  border-radius: 999px;
+}
+
+.hero-demo__composer {
+  flex: 0 0 auto;
+  padding-top: 11px;
+  border-top: 1px solid hsl(var(--nl-border));
+}
+
+.hero-demo__field {
+  position: relative;
+  min-height: 42px;
+  padding: 8px 9px;
+  background: hsl(var(--nl-bg));
+  border: 1px solid hsl(var(--nl-border));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-demo.is-focused .hero-demo__field {
+  border-color: hsl(var(--nl-accent));
+  box-shadow: 0 0 0 2px hsl(var(--nl-accent) / 0.18);
+}
+
+.hero-demo__placeholder,
+.hero-demo__typed {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 9.5px;
+  line-height: 1.5;
+}
+
+.hero-demo__placeholder {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  left: 9px;
+  transition: opacity 0.15s ease;
+}
+
+.hero-demo.is-typing .hero-demo__placeholder {
+  opacity: 0;
+}
+
+.hero-demo__typed {
+  color: hsl(var(--nl-fg));
+}
+
+.hero-demo__caret {
+  display: none;
+  width: 1px;
+  height: 10px;
+  margin-left: 1px;
+  vertical-align: -1px;
+  background: hsl(var(--nl-primary));
+  animation: hero-caret 1.05s steps(1) infinite;
+}
+
+.hero-demo.is-focused .hero-demo__caret {
+  display: inline-block;
+}
+
+.hero-demo__composer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.hero-demo__severity {
+  padding: 2px 7px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 8px;
+  font-weight: 600;
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: 999px;
+}
+
+.hero-demo__send {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  color: hsl(var(--nl-accent-fg));
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: hsl(var(--nl-accent) / 0.35);
+  border: 1px solid hsl(var(--nl-accent) / 0.55);
+  transition: background-color 0.2s ease, transform 0.12s ease;
+}
+
+.hero-demo.is-typing .hero-demo__send {
+  background: hsl(var(--nl-accent));
+}
+
+.hero-demo.is-pressed .hero-demo__send {
+  transform: scale(0.95);
+}
+
+.hero-demo__send svg {
+  flex: 0 0 auto;
+}
+
+.hero-demo__send-done {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-demo.is-sent .hero-demo__send-label,
+.hero-demo.is-sent .hero-demo__send-arrow {
+  display: none;
+}
+
+.hero-demo.is-sent .hero-demo__send-done {
+  display: inline-flex;
+}
+
+.hero-demo.is-sent .hero-demo__send {
+  background: hsl(var(--nl-accent));
+}
+
+@keyframes hero-caret {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  50%,
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-count-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-demo {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .hero-demo__bar {
+    height: 38px;
+    padding: 0 12px;
+  }
+
+  .hero-demo__bar .demo-logo {
+    width: 76px;
+  }
+
+  .hero-demo__body {
+    grid-template-columns: 78px minmax(0, 1fr);
+  }
+
+  .hero-demo__side {
+    gap: 14px;
+    padding: 16px 7px;
+    font-size: 8.5px;
+  }
+
+  .hero-demo__main {
+    padding: 12px;
+  }
+
+  .hero-demo__title {
+    font-size: 13px;
+  }
+
+  .hero-demo__notes {
+    margin-top: 10px;
+  }
+
+  .hero-demo__note-text {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-demo {
+    height: auto;
+    min-height: 290px;
+  }
+
+  .hero-demo__side {
+    display: none;
+  }
+
+  .hero-demo__body {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-demo__main {
+    padding: 10px;
+  }
+
+  .hero-demo__note--existing {
+    display: none;
+  }
+}
+
+/* Carousel u heroju — admin prikaz (01) i dodavanje beleške (02) ---------- */
+.hero-carousel {
+  position: relative;
+}
+
+.hero-slide {
+  display: none;
+}
+
+.hero-slide.is-active {
+  display: block;
+  animation: hero-slide-in 0.35s ease both;
+}
+
+.hero-caption {
+  align-items: center;
+}
+
+.hero-pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.hero-pager__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  color: hsl(var(--nl-muted-fg));
+  background: transparent;
+  border: 0;
+  transition: color 0.2s ease;
+}
+
+.hero-pager__btn:hover {
+  color: hsl(var(--nl-fg));
+}
+
+.hero-pager__btn--prev svg {
+  transform: rotate(180deg);
+}
+
+.hero-pager__count {
+  min-width: 44px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes hero-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-pager__count {
+    min-width: 38px;
+  }
+}

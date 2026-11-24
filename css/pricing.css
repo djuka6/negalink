@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Paketi i cene
+   ========================================================================== */
+
+.pricing {
+  background: hsl(var(--nl-shift-bg));
+}
+
+.pricing .section-intro {
+  margin-bottom: 30px;
+}
+
+.pricing-trial {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  color: hsl(var(--nl-fg));
+  font-size: 13px;
+  line-height: 1.6;
+  background: hsl(var(--nl-accent) / 0.14);
+  border: 1px solid hsl(var(--nl-accent) / 0.45);
+  border-radius: var(--nl-radius);
+}
+
+.pricing-trial svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: hsl(var(--nl-accent));
+}
+
+.pricing-trial strong {
+  font-weight: 600;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  background: hsl(var(--nl-primary-fg));
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: var(--nl-radius);
+}
+
+.price-card__name {
+  margin: 0;
+  color: hsl(var(--nl-fg));
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.price-card__range {
+  margin: 6px 0 0;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 12px;
+}
+
+.price-card__price {
+  margin: 22px 0 0;
+  color: hsl(var(--nl-primary));
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.price-card__price strong {
+  font-weight: 600;
+}
+
+.price-card__price span {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.price-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 22px 0 26px;
+  padding: 20px 0 0;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 13px;
+  line-height: 1.5;
+  list-style: none;
+  border-top: 1px solid hsl(var(--nl-border));
+}
+
+.price-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.price-card__features svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: hsl(var(--nl-accent));
+}
+
+.price-card__cta {
+  width: 100%;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.price-card__note {
+  margin: 0 0 16px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.price-card__note a {
+  color: hsl(var(--nl-accent));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pricing-note {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .pricing .section-intro {
+    margin-bottom: 24px;
+  }
+
+  .pricing-trial {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    padding: 22px;
+  }
+
+  .price-card__price {
+    font-size: 30px;
+  }
+}

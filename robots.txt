@@ -1,0 +1,6 @@
+# NegaLink - marketinski website se indeksira
+User-agent: *
+Allow: /
+
+# Ako se domen promeni, ažurirati i public/sitemap.xml.
+Sitemap: https://negalink.rs/sitemap.xml
