@@ -19,7 +19,8 @@
   text-align: left;
   cursor: pointer;
   appearance: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.12s ease;
 }
 
 .admin-demo__kpi--action:hover {
@@ -48,6 +49,101 @@
 .admin-demo__kpi--action:hover .admin-demo__kpi-arrow {
   color: hsl(var(--nl-accent));
   opacity: 1;
+}
+
+/* Simulirani macOS kursor — vodi kroz KPI kartice (vidi js/main.js) --------- */
+.ckiti-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.85s cubic-bezier(0.3, 0.7, 0.3, 1), opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.ckiti-cursor.is-visible {
+  opacity: 1;
+}
+
+/* Trenutni skok na početnu tačku — bez animacije prelaska. */
+.ckiti-cursor.is-instant {
+  transition: none;
+}
+
+.ckiti-cursor__arrow {
+  display: block;
+  filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.3));
+  transform-origin: 1px 1px;
+  transition: transform 0.12s ease;
+}
+
+.ckiti-cursor.is-pressing .ckiti-cursor__arrow {
+  transform: scale(0.8);
+}
+
+.ckiti-cursor__ring {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 1.5px solid hsl(var(--nl-accent));
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.ckiti-cursor.is-clicking .ckiti-cursor__ring {
+  animation: ckiti-cursor-ring 0.5s ease-out both;
+}
+
+@keyframes ckiti-cursor-ring {
+  from {
+    opacity: 0.9;
+    transform: scale(0.4);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.65);
+  }
+}
+
+/* Meta koju kursor trenutno cilja, odnosno pritiska. */
+.admin-demo__kpi--action.is-ckiti-hinted {
+  background: hsl(var(--nl-accent) / 0.1);
+  border-color: hsl(var(--nl-accent));
+  box-shadow: 0 0 0 2px hsl(var(--nl-accent) / 0.16);
+}
+
+.admin-demo__kpi--action.is-ckiti-pressed {
+  background: hsl(var(--nl-accent) / 0.16);
+  border-color: hsl(var(--nl-accent));
+  transform: scale(0.975);
+}
+
+.ckiti__back.is-ckiti-hinted,
+.ckiti__back.is-ckiti-pressed {
+  color: hsl(var(--nl-accent));
+  background: hsl(var(--nl-accent) / 0.12);
+  border-color: hsl(var(--nl-accent) / 0.7);
+}
+
+/* Zaglavlje beleški koje kursor otvara. */
+.admin-demo__notes-head {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-demo__notes-head.is-ckiti-hinted {
+  background: hsl(var(--nl-accent) / 0.12);
+  box-shadow: inset 0 0 0 1px hsl(var(--nl-accent) / 0.45);
+}
+
+.admin-demo__notes-head.is-ckiti-pressed {
+  background: hsl(var(--nl-accent) / 0.2);
 }
 
 .ckiti {
@@ -871,6 +967,12 @@
 }
 
 /* Responsive ------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .ckiti-cursor {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .ckiti {
     gap: 6px;

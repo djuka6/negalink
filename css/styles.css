@@ -11,7 +11,6 @@
   --nl-border: 70 12% 82%;
   --nl-shift-bg: 65 23% 92%;
   --nl-photo-hero: 75 16% 84%;
-  --nl-photo-story: 40 17% 88%;
   --nl-danger: 0 62% 79%;
 
   /* Geometrija i tipografija */
@@ -619,7 +618,7 @@ p {
   }
 }
 .shift {
-  background: hsl(var(--nl-shift-bg));
+  background: hsl(var(--nl-bg));
 }
 
 .section-intro {
@@ -1219,7 +1218,7 @@ p {
   height: 100%;
   object-fit: cover;
 }
-/* Pre priče osnivača ------------------------------------------------------ */
+/* Pre NegaLinka ----------------------------------------------------------- */
 .friction {
   color: hsl(var(--nl-primary-fg));
   background: hsl(var(--nl-primary));
@@ -1343,71 +1342,290 @@ p {
   }
 }
 
-.story-grid {
+/* Šta je NegaLink — za domove u Srbiji ------------------------------------ */
+.about {
+  background: hsl(var(--nl-shift-bg));
+}
+
+.about__head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 11%;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 6%;
   align-items: center;
+  margin-bottom: 44px;
 }
 
-.story-photo {
-  width: min(100%, 440px);
-  aspect-ratio: 1064 / 1600;
-  min-height: 0;
-  margin-inline: auto;
-  background: hsl(var(--nl-photo-story));
+.about__intro {
+  max-width: 600px;
 }
 
-/* Portret se prikazuje u celini — okvir ima isti odnos strana kao slika. */
-.story-photo .photo-frame__image {
-  object-position: 50% 50%;
-}
-
-.story-copy {
-  max-width: 510px;
-}
-
-.story-rule {
-  height: 1px;
-  margin: 35px 0;
-  background: hsl(var(--nl-border));
-}
-
-.story-text {
-  margin: 0;
+.about__lead {
+  margin: 22px 0 0;
   color: hsl(var(--nl-muted-fg));
-  font-size: 17px;
-  line-height: 1.9;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
-.story-signature {
-  margin: 34px 0 0;
-  font-size: 12px;
+.about__media {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: hsl(var(--nl-shift-bg));
+  border-radius: var(--nl-radius);
+}
+
+.about__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  background: hsl(var(--nl-primary-fg));
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: var(--nl-radius);
+}
+
+.about-card--alert {
+  border-color: rgba(218, 30, 40, 0.35);
+}
+
+.about-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsl(var(--nl-border) / 0.75);
+}
+
+.about-card__label {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-card__meta {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.about-card__meta--alert {
+  color: #da1e28;
   font-weight: 600;
 }
 
-.story-signature span {
+.about-card__note {
+  margin: auto 0 0;
   color: hsl(var(--nl-muted-fg));
-  font-weight: 400;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.about-shift {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-shift__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.about-avatar {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: hsl(var(--nl-primary-fg));
+  font-size: 7.5px;
+  font-weight: 600;
+  border-radius: 50%;
+  background: hsl(var(--nl-accent));
+}
+
+.about-avatar--blue {
+  background: #0f62fe;
+}
+
+.about-shift__name {
+  overflow: hidden;
+  color: hsl(var(--nl-fg));
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.about-shift__role {
+  margin-left: auto;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.about-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-tasks__bar {
+  display: flex;
+  height: 8px;
+  overflow: hidden;
+  background: hsl(var(--nl-border));
+  border-radius: 4px;
+}
+
+.about-tasks__done {
+  background: hsl(var(--nl-accent));
+}
+
+.about-tasks__assigned {
+  background: hsl(var(--nl-accent) / 0.45);
+}
+
+.about-tasks__legend {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.about-note {
+  margin: 0;
+  padding-left: 10px;
+  color: hsl(var(--nl-fg));
+  font-size: 12px;
+  line-height: 1.6;
+  border-left: 2px solid hsl(var(--nl-accent) / 0.6);
+}
+
+.about-note cite {
+  display: block;
+  margin-top: 4px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
+  font-style: normal;
+}
+
+.about-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-actions li {
+  position: relative;
+  padding-left: 12px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.about-actions li::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #da1e28;
+}
+
+.about-actions strong {
+  color: hsl(var(--nl-fg));
+  font-weight: 600;
+}
+
+.about__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin-top: 30px;
+}
+
+.about__closing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: hsl(var(--nl-primary));
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about__closing svg {
+  flex: 0 0 auto;
+  color: hsl(var(--nl-accent));
+}
+
+.about__disclaimer {
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 800px) {
-  .story-grid {
+  .about__head {
     grid-template-columns: 1fr;
-    gap: 38px;
+    gap: 24px;
+    margin-bottom: 28px;
   }
 
-  .story-photo {
-    width: min(100%, 380px);
-    min-height: 0;
+  .about__intro {
+    max-width: none;
   }
 
-  .story-copy {
-    order: -1;
+  .about__media {
+    aspect-ratio: 16 / 9;
   }
 
-  .story-text {
-    font-size: 15px;
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-card {
+    padding: 18px;
+  }
+
+  .about-card__label {
+    font-size: 9px;
+  }
+
+  .about-card__meta,
+  .about-tasks__legend,
+  .about-note cite {
+    font-size: 9.5px;
   }
 }
 .signup {
@@ -1432,6 +1650,13 @@ p {
   font-size: 13px;
   line-height: 1.9;
   opacity: 0.75;
+}
+
+.signup-copy a {
+  color: hsl(var(--nl-accent));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 @media (max-width: 800px) {
@@ -1507,6 +1732,84 @@ p {
   font-size: 11px;
   font-weight: 500;
   opacity: 1;
+}
+
+.signup-form .form-phone {
+  opacity: 0.9;
+}
+
+.signup-form a {
+  color: hsl(var(--nl-accent));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-package {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: hsl(var(--nl-accent) / 0.14);
+  border: 1px solid hsl(var(--nl-accent) / 0.5);
+  border-radius: 3px;
+}
+
+.form-package__icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: hsl(var(--nl-accent));
+}
+
+.form-package__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.form-package__label {
+  color: hsl(var(--nl-primary-fg) / 0.7);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-package__text strong {
+  color: hsl(var(--nl-primary-fg));
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-package__price {
+  color: hsl(var(--nl-primary-fg) / 0.75);
+  font-size: 11px;
+}
+
+.form-package__clear {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  color: hsl(var(--nl-primary-fg) / 0.7);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid hsl(var(--nl-primary-fg) / 0.25);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.form-package__clear:hover,
+.form-package__clear:focus-visible {
+  color: hsl(var(--nl-primary-fg));
+  border-color: hsl(var(--nl-primary-fg) / 0.6);
+}
+
+.form-package[hidden],
+.form-success[hidden] {
+  display: none;
 }
 
 .form-success {

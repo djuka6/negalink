@@ -46,7 +46,8 @@ negalink-website-static/
 ├── assets/
 │   ├── negalink-logo.png
 │   ├── negalink-logo-light.png
-│   └── djordje.jpg              # portret osnivača (1064×1600, optimizovan)
+│   ├── nega-poverenje.jpg       # fotografija nege (sekcija „Šta je NegaLink“)
+│   └── djordje.jpg              # arhivirani portret (trenutno se ne koristi)
 ├── favicon.ico / apple-touch-icon.png / logo192.png / logo512.png
 ├── manifest.json
 ├── robots.txt / sitemap.xml
@@ -71,15 +72,21 @@ negalink-website-static/
   zadaci danas i potrebne akcije. Prebacivanje je strelicama ili
   `ArrowLeft`/`ArrowRight`; neaktivni slajd je `hidden`. Na pregledu doma KPI
   kartice „Popunjenost“, „Zadaci danas“ i „Potrebne akcije“ vode direktno na
-  odgovarajući prikaz, a dugme „Pregled doma“ se vraća nazad.
+  odgovarajući prikaz, a dugme „Pregled doma“ se vraća nazad. Na desktopu i
+  mobilnom simulirani macOS kursor ostaje vidljiv i neprekidno se kreće kroz
+  ceo tok: prvo otvori panel „Beleške smene“, zatim klikne KPI karticu,
+  pročita detaljni prikaz i vrati se preko „Pregled doma“, pa isto za ostale
+  dve kartice. Svaka korisnička interakcija pauzira turu, koja se nastavlja
+  posle 10 s mirovanja; jedino `prefers-reduced-motion` isključuje animaciju.
 - **Admin pregled doma** — KPI kartice i panel „Trenutno u smeni“; panel
   beleški se otvori, skeleton zameni lista i važna beleška se istakne.
 - **Statistika doma** — prikaz po uzoru na `ResidentStats` / `HomeStatsPanel`
   iz aplikacije: hero „92% / Popunjenost doma“, četiri kartice kapaciteta,
   donut „Popunjenost kreveta“ i kolone „Pokretljivost stanara“.
 - **Mobilni Ckiti** — na ≤800px kartica raste sa sadržajem: KPI kartice su
-  2×2, prikazuju se oba grafikona, svi zadaci i obe akcije; admin beleške su
-  odmah otvorene, bez animacije, da bi visina ostala stabilna.
+  2×2, prikazuju se oba grafikona, svi zadaci i obe akcije. Ista kursor tura
+  radi i ovde (otvara beleške i prolazi kroz sve prikaze); uz
+  `prefers-reduced-motion` beleške su odmah otvorene, bez animacije.
 - **Zadaci danas** — 24 zadatka, segmentirana traka statusa i lista zadataka
   (završeno, u toku, na rasporedu, dodeljeno).
 - **Potrebne akcije** — dve akcije iz backend detekcije
@@ -92,13 +99,17 @@ negalink-website-static/
   prikazuju samo konačno stanje. Tekst koji se kuca je `data-note-text` u
   `index.html`; carousel je u `js/main.js` (`initHeroCarousel`), a admin
   animacija u `initAdminDemo`.
-- **Pre priče osnivača** — kratka tamna sekcija „Tri stvari koje svaki dom
-  zna napamet“ (rasute informacije, dupli upisi, primopredaja) uvodi priču
-  osnivača; bez izmišljenih brojeva i statistika.
-- **Priča osnivača** — portret Đorđa Đukića i kratka priča o tome kako je
-  NegaLink nastao uz mlade entuzijaste iz doma „Naša Čuvarkuća“ u Bečeju.
-- **Paketi i cene** — tri mesečna paketa (Starter 15.000, Standard 22.000,
-  Enterprise 36.000 RSD) sa rasponima aktivnih korisnika; prvih mesec dana
+- **Šta je NegaLink** — svetla sekcija odmah posle heroja objašnjava šta je
+  platforma kroz četiri stvarna modula iz aplikacije: trenutno u smeni,
+  zadaci danas, beleške smene i potrebne akcije (sa primerima podataka iz
+  demo prikaza). Uz tekst je fotografija nege
+  (`assets/nega-poverenje.jpg`), a stilovi su `.about*` u `css/styles.css`.
+- **Pre NegaLinka** — kratka tamna sekcija „Tri stvari koje svaki dom zna
+  napamet“ (rasute informacije, dupli upisi, primopredaja) uvodi problem koji
+  NegaLink rešava; bez izmišljenih brojeva i statistika.
+- **Paketi i cene** — tri mesečna paketa (Starter 15.000, Standard 20.000,
+  Enterprise 34.000 RSD) sa rasponima aktivnih korisnika usluga doma
+  (stanara); prvih mesec dana
   korišćenja je besplatno, a pretplata se može otkazati u svakom trenutku.
   CTA „Izaberite ...“ vodi na kontakt formu. Stilovi su u `css/pricing.css`.
 - **CTA-ovi** — „Povežite svoj dom“ u headeru i heroju vodi na `#prijava`,
@@ -133,7 +144,10 @@ negalink-website-static/
   listu beleški smene, po uzoru na aplikaciju. Bez JavaScripta desktop
   prikazuje prvi demo.
 - **Kontakt forma** — validira naziv doma i email, prikazuje greške i otvara
-  korisnikov email klijent preko `mailto:` linka. Podaci se ne čuvaju na sajtu.
+  korisnikov email klijent preko `mailto:` linka. Klik na „Izaberite ...“ u
+  paketima prenosi izabrani paket u formu i u telo mejla; telefon
+  `069 172 0038` je dostupan u kontaktu i u formi. Podaci se ne čuvaju na
+  sajtu.
 - **Godina u footeru** — `main.js` je postavlja na trenutnu godinu, uz statički
   fallback `2026`.
 - **Pristupačnost** — skip-link, vidljiv fokus, `aria-pressed` na momentima,
@@ -148,16 +162,16 @@ negalink-website-static/
 
 Sav tekst je direktno u HTML fajlovima:
 
-1. Hero (oba carousel prikaza), trenuci smene, demo zadaci, priča i forma —
-   `index.html`.
+1. Hero (oba carousel prikaza), sekcija „Šta je NegaLink“, trenuci smene,
+   demo zadaci i forma — `index.html`.
 2. Sadržaj stranice sa mogućnostima — `mogucnosti.html`.
 3. Boje, tipografija i layout — CSS promenljive na početku `css/styles.css`.
-4. Kontakt email za formu — `data-contact-email` na `<form>` elementu; po
-   potrebi i `href` fallback linkovi u formi.
-5. Fotografija osnivača — `assets/djordje.jpg` (1064×1600). Okvir u
-   `css/styles.css` (`.story-photo`) ima isti odnos strana (2:3) i maksimalnu
-   širinu 440px, pa se cela slika vidi bez krojenja. Za zamenu stavi novu sliku
-   u `assets/` i promeni `src`/`alt` u `index.html`.
+4. Kontakt email i telefon — `data-contact-email` na `<form>` elementu i
+   `tel:+381691720038` linkovi u `index.html`.
+5. Sekcija „Šta je NegaLink“ — naslov, uvodni tekst, fotografija
+   (`assets/nega-poverenje.jpg`) i četiri kartice su u `index.html`
+   (`.about`), a stilovi u `css/styles.css` (`.about*`).
+   Portret `assets/djordje.jpg` je arhiviran i trenutno se ne prikazuje.
 6. Cene i paketi — sekcija `#paketi` u `index.html`; iznosi i rasponi su u
    `.price-card__price` / `.price-card__range`, a stilovi u `css/pricing.css`.
 7. Logo — zameni `assets/negalink-logo.png` (i favicon/logo fajlove po potrebi).
@@ -168,8 +182,8 @@ Sav tekst je direktno u HTML fajlovima:
 >
 > Sadržaj Ckiti prikaza (KPI, statistika, zadaci, akcije, beleške) je direktno
 > u `index.html`. Animacije su u `css/admin-demo.css` i `css/ckiti-demo.css`;
-> carousel i admin animacija su u `js/main.js` (`initHeroCarousel`,
-> `initAdminDemo`).
+> carousel, admin animacija i vođena kursor tura su u `js/main.js`
+> (`initHeroCarousel`, `initAdminDemo`, `createCkitiTour`).
 
 ---
 
@@ -219,7 +233,7 @@ Ako se koristi CI/CD, dovoljan je korak koji kopira folder na hosting; nema
   „bez reload-a“ ponašanja opisanog iznad.
 - **Forma ne čuva podatke** — otvara email klijent (`mailto`).
 - **Cene na sajtu i backend billing nisu usklađene** — sajt prikazuje nova tri
-  paketa (15.000 / 22.000 / 36.000 RSD), a backend seed još ima četiri paketa
+  paketa (15.000 / 20.000 / 34.000 RSD), a backend seed još ima četiri paketa
   (16.999 / 22.999 / 39.999 / 49.999 RSD, uključujući Enterprise Plus).
   Potrebno je uskladiti migracijom i ukloniti Enterprise Plus.
 - **Hero prikaz je ilustrativni demo**, ne snimak stvarnog proizvoda; KPI

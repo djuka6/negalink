@@ -552,6 +552,14 @@
     var contactEmail = form.getAttribute('data-contact-email') || 'kontakt@negalink.rs';
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    var packageSummary = form.querySelector('[data-package-summary]');
+    var packageName = form.querySelector('[data-package-name]');
+    var packagePrice = form.querySelector('[data-package-price]');
+    var packageInput = form.querySelector('[data-package-input]');
+    var packageClear = form.querySelector('[data-package-clear]');
+    var packageLinks = document.querySelectorAll('[data-package]');
+    var selectedPackage = null;
+
     var fields = [
       {
         input: homeName,
@@ -616,12 +624,72 @@
       }
     }
 
+    function setPackage(name, price) {
+      if (!name) {
+        return;
+      }
+
+      selectedPackage = {
+        name: name,
+        price: price,
+      };
+
+      if (packageName) {
+        packageName.textContent = name;
+      }
+
+      if (packagePrice) {
+        packagePrice.textContent = price;
+      }
+
+      if (packageInput) {
+        packageInput.value = name + (price ? ' — ' + price : '');
+      }
+
+      if (packageSummary) {
+        packageSummary.hidden = false;
+      }
+
+      hideSuccess();
+    }
+
+    function clearPackage() {
+      selectedPackage = null;
+
+      if (packageSummary) {
+        packageSummary.hidden = true;
+      }
+
+      if (packageInput) {
+        packageInput.value = '';
+      }
+
+      hideSuccess();
+
+      if (homeName) {
+        homeName.focus({ preventScroll: true });
+      }
+    }
+
     fields.forEach(function (field) {
       field.input.addEventListener('input', function () {
         setError(field, '');
         hideSuccess();
       });
     });
+
+    Array.prototype.forEach.call(packageLinks, function (link) {
+      link.addEventListener('click', function () {
+        setPackage(
+          link.getAttribute('data-package') || '',
+          link.getAttribute('data-package-price') || ''
+        );
+      });
+    });
+
+    if (packageClear) {
+      packageClear.addEventListener('click', clearPackage);
+    }
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -632,13 +700,26 @@
         return;
       }
 
-      var body = [
+      var bodyLines = [
         'Naziv doma: ' + homeName.value.trim(),
         'Kontakt mejl: ' + email.value.trim(),
-        '',
-        'Želim da povežem svoj dom sa NegaLink-om.',
-      ].join('\n');
-      var subject = 'Upit za NegaLink — ' + homeName.value.trim();
+      ];
+
+      if (selectedPackage) {
+        bodyLines.push(
+          'Izabrani paket: ' +
+            selectedPackage.name +
+            (selectedPackage.price ? ' — ' + selectedPackage.price : '')
+        );
+      }
+
+      bodyLines.push('', 'Želim da povežem svoj dom sa NegaLink-om.');
+
+      var body = bodyLines.join('\n');
+      var subject =
+        'Upit za NegaLink — ' +
+        homeName.value.trim() +
+        (selectedPackage ? ' (' + selectedPackage.name + ')' : '');
       var href =
         'mailto:' +
         contactEmail +
@@ -796,6 +877,11 @@
   function initAdminDemo() {
     stopAdminDemo();
 
+    /* Dok je vođena kursor tura aktivna, ona upravlja notes panelom. */
+    if (ckitiTourIsRunning) {
+      return;
+    }
+
     var demo = document.querySelector('[data-admin-demo]');
     if (!demo || document.hidden) {
       return;
@@ -884,6 +970,417 @@
     run();
   }
 
+  /* Ckiti tura: simulirani macOS kursor ------------------------------------
+     Kursor se kreće kroz admin pregled, „klikće“ KPI kartice (Popunjenost,
+     Zadaci danas, Potrebne akcije) i vraća se na pregled doma. Tura se
+     pauzira na svaku korisničku interakciju i nastavlja se posle 10 s
+     mirovanja; uz prefers-reduced-motion i na mobilnom se ne pokreće. */
+  var ckitiTourInstance = null;
+  var ckitiTourIsRunning = false;
+
+  function stopCkitiTour() {
+    if (ckitiTourInstance) {
+      ckitiTourInstance.stop();
+    }
+  }
+
+  function startCkitiTour() {
+    if (ckitiTourInstance) {
+      ckitiTourInstance.start();
+    }
+  }
+
+  function createCkitiTour(carousel, slides, render) {
+    var cursor = carousel.querySelector('[data-ckiti-cursor]');
+    var adminIndex = -1;
+    var targetKeys = ['stats', 'tasks', 'actions'];
+    var timers = [];
+    var runToken = 0;
+    var resumeTimer = null;
+    var resumeDelay = 10000;
+    var moveDuration = 880;
+
+    slides.forEach(function (slide, index) {
+      if (slide.getAttribute('data-hero-slide') === 'admin') {
+        adminIndex = index;
+      }
+    });
+
+    if (!cursor || adminIndex === -1) {
+      return null;
+    }
+
+    function slideIndex(key) {
+      var found = -1;
+
+      slides.forEach(function (slide, index) {
+        if (slide.getAttribute('data-hero-slide') === key) {
+          found = index;
+        }
+      });
+
+      return found;
+    }
+
+    function clearTimers() {
+      runToken += 1;
+      timers.forEach(function (timer) {
+        window.clearTimeout(timer);
+      });
+      timers = [];
+    }
+
+    function schedule(callback, delay) {
+      var token = runToken;
+      var timer = window.setTimeout(function () {
+        if (token === runToken) {
+          callback();
+        }
+      }, delay);
+      timers.push(timer);
+    }
+
+    function isAdminActive() {
+      return slides[adminIndex].classList.contains('is-active');
+    }
+
+    function isEnabled() {
+      return !reduceMotion.matches && !document.hidden;
+    }
+
+    function clearHighlightedStates() {
+      carousel
+        .querySelectorAll('.is-ckiti-hinted, .is-ckiti-pressed')
+        .forEach(function (element) {
+          element.classList.remove('is-ckiti-hinted', 'is-ckiti-pressed');
+        });
+    }
+
+    function clearStates() {
+      clearHighlightedStates();
+      cursor.classList.remove('is-visible', 'is-pressing', 'is-clicking');
+    }
+
+    function restPoint(slide) {
+      var demo = slide.querySelector('.hero-demo') || slide;
+      var carouselRect = carousel.getBoundingClientRect();
+      var rect = demo.getBoundingClientRect();
+
+      return {
+        x: Math.round(rect.left - carouselRect.left + rect.width * 0.44),
+        y: Math.round(rect.top - carouselRect.top + rect.height * 0.78),
+      };
+    }
+
+    function targetPoint(element) {
+      var carouselRect = carousel.getBoundingClientRect();
+      var rect = element.getBoundingClientRect();
+
+      return {
+        x: Math.round(rect.left - carouselRect.left + rect.width / 2),
+        y: Math.round(rect.top - carouselRect.top + rect.height / 2),
+      };
+    }
+
+    function placeCursor(point, visible) {
+      cursor.classList.add('is-instant');
+      cursor.style.transform = 'translate3d(' + point.x + 'px, ' + point.y + 'px, 0)';
+      cursor.classList.toggle('is-visible', Boolean(visible));
+
+      /* Pročitaj layout da bi sledeći prelaz krenuo sa nove pozicije. */
+      void cursor.offsetWidth;
+      cursor.classList.remove('is-instant');
+    }
+
+    function moveCursorToPoint(point) {
+      window.requestAnimationFrame(function () {
+        cursor.classList.add('is-visible');
+        cursor.style.transform = 'translate3d(' + point.x + 'px, ' + point.y + 'px, 0)';
+      });
+    }
+
+    function moveCursorTo(element) {
+      moveCursorToPoint(targetPoint(element));
+    }
+
+    /* Ako je kursor već na ekranu, glatko prelazi na novu tačku; inače se
+       pojavljuje tačno na njoj (prvi prikaz). */
+    function showCursorAt(point) {
+      if (cursor.classList.contains('is-visible')) {
+        moveCursorToPoint(point);
+      } else {
+        placeCursor(point, true);
+      }
+    }
+
+    function clickPulse() {
+      cursor.classList.remove('is-clicking');
+      void cursor.offsetWidth;
+      cursor.classList.add('is-clicking');
+    }
+
+    function press(element) {
+      element.classList.add('is-ckiti-pressed');
+      cursor.classList.add('is-pressing');
+      clickPulse();
+    }
+
+    function release(element) {
+      element.classList.remove('is-ckiti-pressed');
+      cursor.classList.remove('is-pressing');
+    }
+
+    /* Notes panelom upravlja tura dok je aktivna (admin demo tada miruje). */
+    function resetNotes() {
+      var adminSlide = slides[adminIndex];
+      var notes = adminSlide.querySelector('[data-admin-notes]');
+      var skeleton = adminSlide.querySelector('[data-admin-skeleton]');
+      var list = adminSlide.querySelector('[data-admin-notes-list]');
+      var firstNote = adminSlide.querySelector('[data-admin-note]');
+
+      if (notes) {
+        notes.classList.remove('is-expanded', 'is-clicking');
+      }
+
+      if (skeleton) {
+        skeleton.classList.remove('is-hidden');
+      }
+
+      if (list) {
+        list.classList.remove('is-visible');
+      }
+
+      if (firstNote) {
+        firstNote.classList.remove('is-highlighted');
+      }
+    }
+
+    /* Tačka koju kursor „čita“ na detaljnom prikazu. */
+    function viewTarget(slide, key) {
+      var selectors = {
+        stats: '.ckiti-rstats__donut-svg',
+        tasks: '.ckiti-tasks__bar',
+        actions: '.ckiti-action--critical',
+      };
+      var target = slide.querySelector(selectors[key] || '');
+
+      return target || slide.querySelector('.hero-demo') || slide;
+    }
+
+    function runStep(stepIndex) {
+      if (stepIndex >= targetKeys.length) {
+        /* Kraj kruga: kratka pauza, pa sve ponovo od pregleda doma. */
+        schedule(function () {
+          start();
+        }, 2800);
+        return;
+      }
+
+      var key = targetKeys[stepIndex];
+      var targetIndex = slideIndex(key);
+      var adminSlide = slides[adminIndex];
+      var button = adminSlide.querySelector('[data-ckiti-target="' + key + '"]');
+
+      if (!button || targetIndex === -1) {
+        runStep(stepIndex + 1);
+        return;
+      }
+
+      if (!isAdminActive()) {
+        render(adminIndex, false, false);
+        showCursorAt(restPoint(adminSlide));
+      }
+
+      /* Kursor ostaje vidljiv i kreće se pravo ka sledećoj KPI kartici. */
+      button.classList.add('is-ckiti-hinted');
+
+      schedule(function () {
+        moveCursorTo(button);
+      }, 120);
+
+      var pressAt = 120 + moveDuration + 220;
+
+      schedule(function () {
+        button.classList.remove('is-ckiti-hinted');
+        press(button);
+      }, pressAt);
+
+      schedule(function () {
+        render(targetIndex, false, false);
+        release(button);
+        resetNotes();
+
+        /* Kursor nastavlja da se kreće kroz detaljni prikaz. */
+        var detailSlide = slides[targetIndex];
+
+        schedule(function () {
+          moveCursorTo(viewTarget(detailSlide, key));
+        }, 600);
+      }, pressAt + 170);
+
+      /* Kratko zadržavanje detaljnog prikaza, pa povratak na pregled. */
+      schedule(function () {
+        openBack(stepIndex, targetIndex);
+      }, pressAt + 170 + 3400);
+    }
+
+    function openBack(stepIndex, targetIndex) {
+      var slide = slides[targetIndex];
+      var back = slide.querySelector('.ckiti__back');
+
+      if (!back) {
+        render(adminIndex, false, false);
+        schedule(function () {
+          runStep(stepIndex + 1);
+        }, 1400);
+        return;
+      }
+
+      back.classList.add('is-ckiti-hinted');
+
+      schedule(function () {
+        moveCursorTo(back);
+      }, 120);
+
+      var pressAt = 120 + moveDuration + 220;
+
+      schedule(function () {
+        back.classList.remove('is-ckiti-hinted');
+        press(back);
+      }, pressAt);
+
+      schedule(function () {
+        render(adminIndex, false, false);
+        release(back);
+      }, pressAt + 170);
+
+      schedule(function () {
+        runStep(stepIndex + 1);
+      }, pressAt + 170 + 1300);
+    }
+
+    /* Otvaranje „Beleški smene“: kursor klikće zaglavlje panela, panel se
+       otvori, skeleton zameni lista i prva beleška se istakne. */
+    function openNotesStep() {
+      var adminSlide = slides[adminIndex];
+      var notes = adminSlide.querySelector('[data-admin-notes]');
+      var toggle = adminSlide.querySelector('[data-admin-notes-toggle]');
+      var skeleton = adminSlide.querySelector('[data-admin-skeleton]');
+      var list = adminSlide.querySelector('[data-admin-notes-list]');
+      var firstNote = adminSlide.querySelector('[data-admin-note]');
+
+      if (!notes || !toggle) {
+        runStep(0);
+        return;
+      }
+
+      resetNotes();
+      toggle.classList.add('is-ckiti-hinted');
+      moveCursorTo(toggle);
+
+      var pressAt = 120 + moveDuration + 220;
+
+      schedule(function () {
+        toggle.classList.remove('is-ckiti-hinted');
+        toggle.classList.add('is-ckiti-pressed');
+        cursor.classList.add('is-pressing');
+        clickPulse();
+        notes.classList.add('is-clicking');
+      }, pressAt);
+
+      schedule(function () {
+        toggle.classList.remove('is-ckiti-pressed');
+        cursor.classList.remove('is-pressing');
+        notes.classList.remove('is-clicking');
+        notes.classList.add('is-expanded');
+      }, pressAt + 150);
+
+      schedule(function () {
+        if (skeleton) {
+          skeleton.classList.add('is-hidden');
+        }
+
+        if (list) {
+          list.classList.add('is-visible');
+        }
+      }, pressAt + 700);
+
+      schedule(function () {
+        if (firstNote) {
+          firstNote.classList.add('is-highlighted');
+        }
+      }, pressAt + 1100);
+
+      /* Kratko čitanje beleški, pa prelazak na prvu KPI karticu. */
+      schedule(function () {
+        runStep(0);
+      }, pressAt + 1900);
+    }
+
+    function stop(keepCursor) {
+      ckitiTourIsRunning = false;
+      clearTimers();
+
+      if (keepCursor) {
+        /* Interni restart (novi krug) — kursor ostaje na ekranu. */
+        clearHighlightedStates();
+        cursor.classList.remove('is-pressing', 'is-clicking');
+      } else {
+        clearStates();
+      }
+
+      if (resumeTimer) {
+        window.clearTimeout(resumeTimer);
+        resumeTimer = null;
+      }
+    }
+
+    function start() {
+      stop(true);
+
+      if (!isEnabled()) {
+        return;
+      }
+
+      ckitiTourIsRunning = true;
+      stopAdminDemo();
+
+      if (!isAdminActive()) {
+        render(adminIndex, false, false);
+      }
+
+      /* Kursor se odmah pojavi i ostaje vidljiv tokom cele ture. */
+      showCursorAt(restPoint(slides[adminIndex]));
+
+      schedule(function () {
+        openNotesStep();
+      }, 800);
+    }
+
+    function pause() {
+      stop();
+
+      /* Korisnik preuzima kontrolu — admin demo ponovo vodi notes panel. */
+      if (isAdminActive()) {
+        restartActiveHeroDemo();
+      }
+
+      resumeTimer = window.setTimeout(function () {
+        resumeTimer = null;
+
+        if (!document.hidden) {
+          start();
+        }
+      }, resumeDelay);
+    }
+
+    return {
+      start: start,
+      stop: stop,
+      pause: pause,
+    };
+  }
+
   /* Hero carousel: admin pregled (01) i dodavanje beleške (02) -------------- */
   function restartActiveHeroDemo() {
     stopHeroDemo();
@@ -902,6 +1399,10 @@
   function initHeroCarousel() {
     stopHeroDemo();
     stopAdminDemo();
+    stopCkitiTour();
+
+    ckitiTourInstance = null;
+    ckitiTourIsRunning = false;
 
     var carousel = document.querySelector('[data-hero-carousel]');
     if (!carousel) {
@@ -998,6 +1499,17 @@
       });
     });
 
+    /* Svaka korisnička interakcija pauzira vođenu turu kursora. */
+    function interruptTour() {
+      if (ckitiTourInstance) {
+        ckitiTourInstance.pause();
+      }
+    }
+
+    carousel.addEventListener('pointerdown', interruptTour);
+    carousel.addEventListener('focusin', interruptTour);
+    carousel.addEventListener('keydown', interruptTour);
+
     carousel.addEventListener('keydown', function (event) {
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
@@ -1008,7 +1520,18 @@
       }
     });
 
+    /* Tura se priprema pre prvog rendera da admin demo ne bi otvorio beleške
+       pre nego što ih kursor klikne (važi i za mobilni prikaz). */
+    ckitiTourInstance = createCkitiTour(carousel, slides, render);
+    ckitiTourIsRunning = Boolean(ckitiTourInstance) && !reduceMotion.matches;
+
     render(activeIndex, false, false);
+
+    if (ckitiTourInstance) {
+      ckitiTourInstance.start();
+    } else {
+      ckitiTourIsRunning = false;
+    }
   }
 
   /* Inicijalizacija stranice (ponovo se poziva posle svake promene) --------- */
@@ -1023,18 +1546,36 @@
   initPage();
 
   /* Hero animacije prate promenu preferencije i vidljivost taba. */
+  function handleMotionPreferenceChange() {
+    if (reduceMotion.matches) {
+      stopCkitiTour();
+      restartActiveHeroDemo();
+    } else {
+      startCkitiTour();
+
+      if (!ckitiTourIsRunning) {
+        restartActiveHeroDemo();
+      }
+    }
+  }
+
   if (typeof reduceMotion.addEventListener === 'function') {
-    reduceMotion.addEventListener('change', restartActiveHeroDemo);
+    reduceMotion.addEventListener('change', handleMotionPreferenceChange);
   } else if (typeof reduceMotion.addListener === 'function') {
-    reduceMotion.addListener(restartActiveHeroDemo);
+    reduceMotion.addListener(handleMotionPreferenceChange);
   }
 
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
       stopHeroDemo();
       stopAdminDemo();
+      stopCkitiTour();
     } else {
-      restartActiveHeroDemo();
+      startCkitiTour();
+
+      if (!ckitiTourIsRunning) {
+        restartActiveHeroDemo();
+      }
     }
   });
 
