@@ -47,6 +47,9 @@ negalink-website-static/
 │   ├── negalink-logo.png
 │   ├── negalink-logo-light.png
 │   ├── nega-poverenje.jpg       # fotografija nege (sekcija „Šta je NegaLink“)
+│   ├── device-mockups.png       # originalni device mockup (1774×887)
+│   ├── device-mockups-1400.png  # optimizovan za desktop
+│   ├── device-mockups-800.png   # optimizovan za mobilni
 │   └── djordje.jpg              # arhivirani portret (trenutno se ne koristi)
 ├── favicon.ico / apple-touch-icon.png / logo192.png / logo512.png
 ├── manifest.json
@@ -143,6 +146,10 @@ negalink-website-static/
   Raspored / Beleške**: Raspored prikazuje mini mesečni kalendar, a Beleške
   listu beleški smene, po uzoru na aplikaciju. Bez JavaScripta desktop
   prikazuje prvi demo.
+- **Web, iOS i Android** — ispod prikaza smene je showcase panel sa device
+  mockup-om (laptop + iPhone) i porukom da je NegaLink jedna univerzalna
+  aplikacija za web, iOS i Android — isti nalog, isti podaci i ista smena
+  na svakom uređaju. Stilovi su `.apps-showcase*` u `css/styles.css`.
 - **Kontakt forma** — validira naziv doma i email, prikazuje greške i otvara
   korisnikov email klijent preko `mailto:` linka. Klik na „Izaberite ...“ u
   paketima prenosi izabrani paket u formu i u telo mejla; telefon

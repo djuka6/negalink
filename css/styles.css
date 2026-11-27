@@ -644,6 +644,140 @@ p {
   align-items: center;
 }
 
+/* Web / iOS / Android showcase ispod prikaza smene ----------------------- */
+.apps-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 7%;
+  align-items: center;
+  margin-top: 64px;
+  padding: 40px;
+  background: hsl(var(--nl-shift-bg));
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: var(--nl-radius);
+}
+
+.apps-showcase__copy {
+  max-width: 480px;
+}
+
+.apps-showcase__title {
+  margin: 4px 0 0;
+  color: hsl(var(--nl-fg));
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.apps-showcase__title em {
+  color: hsl(var(--nl-accent));
+  font-style: normal;
+}
+
+.apps-showcase__lead {
+  margin: 18px 0 0;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.apps-showcase__platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.apps-showcase__platforms li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  color: hsl(var(--nl-primary));
+  font-size: 10.5px;
+  font-weight: 600;
+  background: hsl(var(--nl-primary-fg));
+  border: 1px solid hsl(var(--nl-border));
+  border-radius: 999px;
+}
+
+.apps-showcase__platforms li::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  background: hsl(var(--nl-accent));
+  border-radius: 50%;
+}
+
+.apps-showcase__sync {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 18px 0 0;
+  color: hsl(var(--nl-primary));
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.apps-showcase__sync svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: hsl(var(--nl-accent));
+}
+
+.apps-showcase__media {
+  min-width: 0;
+  margin: 0;
+}
+
+.apps-showcase__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .apps-showcase {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 36px;
+    padding: 22px 18px;
+  }
+
+  .apps-showcase__copy {
+    max-width: none;
+  }
+
+  .apps-showcase__title {
+    font-size: 25px;
+  }
+
+  .apps-showcase__lead {
+    margin-top: 14px;
+    font-size: 12.5px;
+  }
+
+  .apps-showcase__platforms {
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .apps-showcase__platforms li {
+    padding: 4px 8px;
+    font-size: 9.5px;
+  }
+
+  .apps-showcase__sync {
+    margin-top: 16px;
+    font-size: 10.5px;
+  }
+}
+
 .moments {
   border-top: 1px solid hsl(var(--nl-border));
 }
