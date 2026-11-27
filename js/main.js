@@ -1534,11 +1534,70 @@
     }
   }
 
+  /* Skaliranje CSS ilustracije MacBook-a i iPhone-a ------------------------ */
+  var DEVICE_ILLUSTRATION_WIDTH = 706;
+  var deviceIllustrationObserver = null;
+  var deviceIllustrationResizeBound = false;
+
+  function updateDeviceIllustrationScale() {
+    var illustration = document.querySelector('.device-illustration');
+
+    if (!illustration) {
+      return;
+    }
+
+    if (window.matchMedia('(max-width: 800px)').matches) {
+      illustration.style.removeProperty('--device-scale');
+      return;
+    }
+
+    var width = illustration.clientWidth;
+
+    if (!width) {
+      return;
+    }
+
+    illustration.style.setProperty(
+      '--device-scale',
+      String(width / DEVICE_ILLUSTRATION_WIDTH)
+    );
+  }
+
+  function initDeviceIllustration() {
+    var illustration = document.querySelector('.device-illustration');
+
+    if (!illustration) {
+      if (deviceIllustrationObserver) {
+        deviceIllustrationObserver.disconnect();
+        deviceIllustrationObserver = null;
+      }
+      return;
+    }
+
+    updateDeviceIllustrationScale();
+
+    if (typeof ResizeObserver === 'function') {
+      if (deviceIllustrationObserver) {
+        deviceIllustrationObserver.disconnect();
+      }
+
+      deviceIllustrationObserver = new ResizeObserver(updateDeviceIllustrationScale);
+      deviceIllustrationObserver.observe(illustration);
+      return;
+    }
+
+    if (!deviceIllustrationResizeBound) {
+      window.addEventListener('resize', updateDeviceIllustrationScale, { passive: true });
+      deviceIllustrationResizeBound = true;
+    }
+  }
+
   /* Inicijalizacija stranice (ponovo se poziva posle svake promene) --------- */
   function initPage() {
     initHeroCarousel();
     initMoments();
     initForm();
+    initDeviceIllustration();
   }
 
   initMobileMenu();

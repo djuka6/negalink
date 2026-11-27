@@ -42,7 +42,7 @@ negalink-website-static/
 │   ├── ckiti-demo.css          # Ckiti: statistika, zadaci, akcije + KPI interakcija
 │   └── mogucnosti.css          # stilovi stranice „Mogućnosti“
 ├── js/
-│   └── main.js                 # hero animacije, interaktivna smena, godina i forma
+│   └── main.js                 # hero animacije, interaktivna smena, godina, forma i skaliranje ilustracije
 ├── assets/
 │   ├── negalink-logo.png
 │   ├── negalink-logo-light.png
@@ -148,6 +148,8 @@ negalink-website-static/
   slike) i porukom da je NegaLink jedna univerzalna aplikacija za web, iOS i
   Android — isti nalog, isti podaci i ista smena na svakom uređaju. Stilovi
   su `.apps-showcase*` i `.device-illustration*` u `css/styles.css`.
+  Ilustracija se skalira sa širinom kolone, na tabletima prelazi u punu
+  širinu, a mobilni prikaz pojednostavljuje dashboard.
 - **Kontakt forma** — validira naziv doma i email, prikazuje greške i otvara
   korisnikov email klijent preko `mailto:` linka. Klik na „Izaberite ...“ u
   paketima prenosi izabrani paket u formu i u telo mejla; telefon
