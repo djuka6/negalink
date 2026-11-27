@@ -146,7 +146,7 @@ negalink-website-static/
   Raspored / Beleške**: Raspored prikazuje mini mesečni kalendar, a Beleške
   listu beleški smene, po uzoru na aplikaciju. Bez JavaScripta desktop
   prikazuje prvi demo.
-- **Web, iOS i Android** — ispod prikaza smene je showcase panel sa device
+- **Web, iOS i Android** — ispod prikaza smene je showcase blok sa device
   mockup-om (laptop + iPhone) i porukom da je NegaLink jedna univerzalna
   aplikacija za web, iOS i Android — isti nalog, isti podaci i ista smena
   na svakom uređaju. Stilovi su `.apps-showcase*` u `css/styles.css`.

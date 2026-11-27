@@ -647,14 +647,12 @@ p {
 /* Web / iOS / Android showcase ispod prikaza smene ----------------------- */
 .apps-showcase {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 7%;
   align-items: center;
-  margin-top: 64px;
-  padding: 40px;
-  background: hsl(var(--nl-shift-bg));
-  border: 1px solid hsl(var(--nl-border));
-  border-radius: var(--nl-radius);
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid hsl(var(--nl-border));
 }
 
 .apps-showcase__copy {
@@ -662,11 +660,11 @@ p {
 }
 
 .apps-showcase__title {
-  margin: 4px 0 0;
+  margin: 0;
   color: hsl(var(--nl-fg));
-  font-size: clamp(26px, 2.6vw, 34px);
+  font-size: clamp(24px, 2.4vw, 30px);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
@@ -676,7 +674,7 @@ p {
 }
 
 .apps-showcase__lead {
-  margin: 18px 0 0;
+  margin: 16px 0 0;
   color: hsl(var(--nl-muted-fg));
   font-size: 13px;
   line-height: 1.8;
@@ -685,8 +683,8 @@ p {
 .apps-showcase__platforms {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 20px 0 0;
+  gap: 8px 16px;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -695,13 +693,11 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 9px;
-  color: hsl(var(--nl-primary));
-  font-size: 10.5px;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 10px;
   font-weight: 600;
-  background: hsl(var(--nl-primary-fg));
-  border: 1px solid hsl(var(--nl-border));
-  border-radius: 999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .apps-showcase__platforms li::before {
@@ -716,12 +712,12 @@ p {
 .apps-showcase__sync {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  margin: 18px 0 0;
-  color: hsl(var(--nl-primary));
-  font-size: 11.5px;
-  font-weight: 600;
-  line-height: 1.5;
+  gap: 6px;
+  margin: 14px 0 0;
+  color: hsl(var(--nl-muted-fg));
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 .apps-showcase__sync svg {
@@ -744,9 +740,9 @@ p {
 @media (max-width: 800px) {
   .apps-showcase {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 26px;
     margin-top: 36px;
-    padding: 22px 18px;
+    padding-top: 32px;
   }
 
   .apps-showcase__copy {
@@ -754,26 +750,22 @@ p {
   }
 
   .apps-showcase__title {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .apps-showcase__lead {
-    margin-top: 14px;
     font-size: 12.5px;
   }
 
   .apps-showcase__platforms {
-    gap: 6px;
-    margin-top: 16px;
+    gap: 6px 12px;
   }
 
   .apps-showcase__platforms li {
-    padding: 4px 8px;
-    font-size: 9.5px;
+    font-size: 9px;
   }
 
   .apps-showcase__sync {
-    margin-top: 16px;
     font-size: 10.5px;
   }
 }
