@@ -50,6 +50,9 @@ negalink-website-static/
 │   ├── device-mockups.png       # originalni device mockup (1774×887)
 │   ├── device-mockups-1400.png  # optimizovan za desktop
 │   ├── device-mockups-800.png   # optimizovan za mobilni
+│   ├── device-mockup-02.png     # drugi device mockup (3548×1774)
+│   ├── device-mockup-02-1400.png # optimizovan za desktop
+│   ├── device-mockup-02-800.png  # optimizovan za mobilni
 │   └── djordje.jpg              # arhivirani portret (trenutno se ne koristi)
 ├── favicon.ico / apple-touch-icon.png / logo192.png / logo512.png
 ├── manifest.json
