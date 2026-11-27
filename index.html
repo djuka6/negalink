@@ -41,7 +41,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=21" />
+    <link rel="stylesheet" href="css/styles.css?v=22" />
     <link rel="stylesheet" href="css/pricing.css?v=2" />
     <link rel="stylesheet" href="css/hero-demo.css?v=3" />
     <link rel="stylesheet" href="css/admin-demo.css?v=2" />
@@ -1806,19 +1806,302 @@
               </div>
 
               <figure class="apps-showcase__media">
-                <img
-                  src="assets/device-mockup-02-1400.png"
-                  srcset="
-                    assets/device-mockup-02-800.png  800w,
-                    assets/device-mockup-02-1400.png 1400w
-                  "
-                  sizes="(max-width: 800px) calc(100vw - 80px), 700px"
-                  alt="NegaLink aplikacija na različitim uređajima"
-                  width="1400"
-                  height="700"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <div
+                  class="device-illustration"
+                  role="img"
+                  aria-label="Ilustracija NegaLink admin dashboard-a na MacBook laptopu i iPhone-u"
+                >
+                  <div class="device-laptop" aria-hidden="true">
+                    <div class="device-laptop__screen">
+                      <span class="device-laptop__notch"></span>
+                      <div class="mini-dash">
+                        <aside class="mini-side">
+                          <img
+                            class="mini-logo"
+                            src="assets/negalink-logo.png"
+                            alt=""
+                            width="42"
+                            height="10"
+                          />
+                          <span class="mini-nav is-active">Pregled doma</span>
+                          <span class="mini-nav">Korisnici</span>
+                          <span class="mini-nav">Sobe</span>
+                          <span class="mini-nav">Zadaci</span>
+                          <span class="mini-nav">Beleške</span>
+                          <span class="mini-nav">Ishrana</span>
+                          <span class="mini-nav">Izveštaji</span>
+                        </aside>
+
+                        <div class="mini-main">
+                          <div class="mini-head">
+                            <div>
+                              <span class="mini-eyebrow">Pregled doma</span>
+                              <strong>Dobro jutro, Nataša</strong>
+                            </div>
+                            <span class="mini-date">Danas</span>
+                          </div>
+
+                          <div class="mini-kpis">
+                            <div class="mini-kpi">
+                              <span>Popunjenost</span>
+                              <strong>87.5%</strong>
+                              <small>46 od 50 kreveta</small>
+                              <i class="mini-progress"><b style="width: 87.5%"></b></i>
+                            </div>
+                            <div class="mini-kpi">
+                              <span>U smeni</span>
+                              <strong>8</strong>
+                              <small>3 oblasti</small>
+                            </div>
+                            <div class="mini-kpi">
+                              <span>Zadaci danas</span>
+                              <strong>10</strong>
+                              <small>7 završeno</small>
+                            </div>
+                            <div class="mini-kpi mini-kpi--alert">
+                              <span>Potrebne akcije</span>
+                              <strong>2</strong>
+                              <small>2 najvažnije</small>
+                            </div>
+                          </div>
+
+                          <div class="mini-panels">
+                            <div class="mini-panel">
+                              <div class="mini-panel-head">
+                                <strong>Zadaci danas</strong>
+                                <span>10</span>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--done"></i>
+                                <span>Jutarnja nega</span>
+                                <time>08:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--progress"></i>
+                                <span>Podela doručka</span>
+                                <time>09:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check"></i>
+                                <span>Obilazak korisnika</span>
+                                <time>10:30</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--done"></i>
+                                <span>Promena pelena</span>
+                                <time>11:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--progress"></i>
+                                <span>Merenje pritiska</span>
+                                <time>12:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check"></i>
+                                <span>Pomoć pri ručku</span>
+                                <time>13:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--done"></i>
+                                <span>Prijem posete</span>
+                                <time>14:00</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check"></i>
+                                <span>Dnevni izveštaj</span>
+                                <time>14:30</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check mini-check--done"></i>
+                                <span>Primopredaja smene</span>
+                                <time>14:45</time>
+                              </div>
+                              <div class="mini-task">
+                                <i class="mini-check"></i>
+                                <span>Dežurstvo</span>
+                                <time>15:00</time>
+                              </div>
+                              <div class="mini-panel-foot">
+                                <span>7 od 10 završeno</span>
+                                <i class="mini-progress"><b style="width: 70%"></b></i>
+                              </div>
+                            </div>
+
+                            <div class="mini-panel">
+                              <div class="mini-panel-head">
+                                <strong>Trenutno u smeni</strong>
+                                <span>8</span>
+                              </div>
+                              <div class="mini-person">
+                                <span class="mini-avatar mini-avatar--green">JM</span>
+                                <span>Jelena Marković</span>
+                                <small>07–15</small>
+                              </div>
+                              <div class="mini-person">
+                                <span class="mini-avatar mini-avatar--blue">MP</span>
+                                <span>Marko Petrović</span>
+                                <small>07–15</small>
+                              </div>
+                              <div class="mini-person">
+                                <span class="mini-avatar mini-avatar--green">AS</span>
+                                <span>Ana Stanković</span>
+                                <small>07–15</small>
+                              </div>
+                              <div class="mini-person">
+                                <span class="mini-avatar mini-avatar--blue">NI</span>
+                                <span>Nikola Ilić</span>
+                                <small>07–15</small>
+                              </div>
+                              <div class="mini-person">
+                                <span class="mini-avatar mini-avatar--green">MJ</span>
+                                <span>Milica Jovanović</span>
+                                <small>07–15</small>
+                              </div>
+                              <div class="mini-meal">
+                                <span>Ishrana danas</span>
+                                <strong>28 obroka</strong>
+                                <small>3 dijete</small>
+                              </div>
+                              <div class="mini-note">
+                                <strong>Beleške smene</strong>
+                                <span>Gospođa Jela je dobro ručala.</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mini-quick">
+                            <div class="mini-quick-card">
+                              <span>Sledeća smena</span>
+                              <strong>15:00 – 23:00</strong>
+                              <small>6 zaposlenih</small>
+                            </div>
+                            <div class="mini-quick-card">
+                              <span>Ishrana danas</span>
+                              <strong>28 obroka</strong>
+                              <small>3 dijete</small>
+                            </div>
+                            <div class="mini-quick-card">
+                              <span>Beleške</span>
+                              <strong>12 novih</strong>
+                              <small>2 važne</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="device-laptop__base"></div>
+                  </div>
+
+                  <div class="device-phone" aria-hidden="true">
+                    <span class="device-phone__island"></span>
+                    <div class="mini-phone">
+                      <div class="mini-phone-top">
+                        <img
+                          class="mini-logo"
+                          src="assets/negalink-logo.png"
+                          alt=""
+                          width="32"
+                          height="8"
+                        />
+                        <span class="mini-avatar mini-avatar--green">N</span>
+                      </div>
+
+                      <span class="mini-phone-eyebrow">Pregled doma</span>
+
+                      <div class="mini-phone-kpis">
+                        <div class="mini-kpi">
+                          <span>Popunjenost</span>
+                          <strong>87.5%</strong>
+                          <small>46/50</small>
+                        </div>
+                        <div class="mini-kpi">
+                          <span>U smeni</span>
+                          <strong>8</strong>
+                          <small>3 oblasti</small>
+                        </div>
+                        <div class="mini-kpi">
+                          <span>Zadaci</span>
+                          <strong>10</strong>
+                          <small>7 završeno</small>
+                        </div>
+                        <div class="mini-kpi mini-kpi--alert">
+                          <span>Akcije</span>
+                          <strong>2</strong>
+                          <small>najvažnije</small>
+                        </div>
+                      </div>
+
+                      <div class="mini-phone-section">
+                        <div class="mini-panel-head">
+                          <strong>Zadaci danas</strong>
+                          <span>10</span>
+                        </div>
+                        <div class="mini-task">
+                          <i class="mini-check mini-check--done"></i>
+                          <span>Jutarnja nega</span>
+                          <time>08:00</time>
+                        </div>
+                        <div class="mini-task">
+                          <i class="mini-check mini-check--progress"></i>
+                          <span>Doručak</span>
+                          <time>09:00</time>
+                        </div>
+                        <div class="mini-task">
+                          <i class="mini-check"></i>
+                          <span>Obilazak</span>
+                          <time>10:30</time>
+                        </div>
+                        <div class="mini-task">
+                          <i class="mini-check"></i>
+                          <span>Merenje pritiska</span>
+                          <time>12:00</time>
+                        </div>
+                      </div>
+
+                      <div class="mini-phone-shift">
+                        <div>
+                          <span>Sledeća smena</span>
+                          <strong>15:00 – 23:00</strong>
+                        </div>
+                        <small>6 zaposlenih</small>
+                      </div>
+
+                      <div class="mini-phone-actions">
+                        <span>+ Zadatak</span>
+                        <span>+ Beleška</span>
+                      </div>
+
+                      <div class="mini-phone-meal">
+                        <span>Ishrana danas</span>
+                        <strong>28 obroka · 3 dijete</strong>
+                      </div>
+
+                      <div class="mini-phone-team">
+                        <div class="mini-phone-team-avatars">
+                          <span class="mini-avatar mini-avatar--green">JM</span>
+                          <span class="mini-avatar mini-avatar--blue">MP</span>
+                          <span class="mini-avatar mini-avatar--green">AS</span>
+                        </div>
+                        <div>
+                          <span>Tim u smeni</span>
+                          <strong>8 zaposlenih</strong>
+                        </div>
+                      </div>
+
+                      <div class="mini-phone-note">
+                        <strong>Beleške smene</strong>
+                        <span>Jelena M. · 11:32</span>
+                      </div>
+
+                      <div class="mini-phone-nav">
+                        <span class="is-active">Početna</span>
+                        <span>Zadaci</span>
+                        <span>Beleške</span>
+                        <span>Meni</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </figure>
             </div>
           </div>
